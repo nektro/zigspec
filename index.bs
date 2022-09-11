@@ -38,6 +38,22 @@ TODO more history information
 
 [0.9.0 released on 2021-12-20](https://ziglang.org/download/0.9.0/release-notes.html)
 
+# Zen
+
+- Communicate intent precisely.
+- Edge cases matter.
+- Favor reading code over writing code.
+- Only one obvious way to do things.
+- Runtime crashes are better than bugs.
+- Compile errors are better than runtime crashes.
+- Incremental improvements.
+- Avoid local maximums.
+- Reduce the amount one must remember.
+- Focus on code rather than style.
+- Resource allocation may fail; resource deallocation must succeed.
+- Memory is a resource.
+- Together we serve the users.
+
 # Scope
 
 This Standard defines the Zig [ISODATE] general-purpose programming language.
