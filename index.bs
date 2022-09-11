@@ -9,7 +9,7 @@ Abstract: Zig is a general-purpose programming language and toolchain for mainta
 Repository: nektro/zigspec
 Work Status: exploring
 Markup Shorthands: biblio yes, markdown yes
-Boilerplate: omit conformance
+Boilerplate: omit conformance, abstract no, copyright no, index no, issues-index no
 </pre>
 
 # Introduction
