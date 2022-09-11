@@ -1,219 +1,223 @@
 # Compiler Builtins
 
-## @addWithOverflow
+Builtin functions are provided by the compiler and are prefixed with `@`. The `comptime` keyword on a parameter means that the parameter must be known at compile time.
 
-## @alignCast
+Issue(tabatkins/bikeshed#861): TODO figure out how to workaround ID conflict between `@frame` and `@Frame`
 
-## @alignOf
+* <dfn>@addWithOverflow</dfn>
 
-## @as
+* <dfn>@alignCast</dfn>
 
-## @asyncCall
+* <dfn>@alignOf</dfn>
 
-## @atomicLoad
+* <dfn>@as</dfn>
 
-## @atomicRmw
+* <dfn>@asyncCall</dfn>
 
-## @atomicStore
+* <dfn>@atomicLoad</dfn>
 
-## @bitCast
+* <dfn>@atomicRmw</dfn>
 
-## @bitOffsetOf
+* <dfn>@atomicStore</dfn>
 
-## @bitReverse
+* <dfn>@bitCast</dfn>
 
-## @bitSizeOf
+* <dfn>@bitOffsetOf</dfn>
 
-## @boolToInt
+* <dfn>@bitReverse</dfn>
 
-## @breakpoint
+* <dfn>@bitSizeOf</dfn>
 
-## @byteSwap
+* <dfn>@boolToInt</dfn>
 
-## @call
+* <dfn>@breakpoint</dfn>
 
-## @cDefine
+* <dfn>@byteSwap</dfn>
 
-## @ceil
+* <dfn>@call</dfn>
 
-## @cImport
+* <dfn>@cDefine</dfn>
 
-## @cInclude
+* <dfn>@ceil</dfn>
 
-## @clz
+* <dfn>@cImport</dfn>
 
-## @cmpxchgStrong
+* <dfn>@cInclude</dfn>
 
-## @cmpxchgWeak
+* <dfn>@clz</dfn>
 
-## @compileError
+* <dfn>@cmpxchgStrong</dfn>
 
-## @compileLog
+* <dfn>@cmpxchgWeak</dfn>
 
-## @cos
+* <dfn>@compileError</dfn>
 
-## @ctz
+* <dfn>@compileLog</dfn>
 
-## @cUndef
+* <dfn>@cos</dfn>
 
-## @divExact
+* <dfn>@ctz</dfn>
 
-## @divFloor
+* <dfn>@cUndef</dfn>
 
-## @divTrunc
+* <dfn>@divExact</dfn>
 
-## @embedFile
+* <dfn>@divFloor</dfn>
 
-## @enumToInt
+* <dfn>@divTrunc</dfn>
 
-## @errorName
+* <dfn>@embedFile</dfn>
 
-## @errorReturnTrace
+* <dfn>@enumToInt</dfn>
 
-## @errorToInt
+* <dfn>@errorName</dfn>
 
-## @errSetCast
+* <dfn>@errorReturnTrace</dfn>
 
-## @exp
+* <dfn>@errorToInt</dfn>
 
-## @exp2
+* <dfn>@errSetCast</dfn>
 
-## @export
+* <dfn>@exp</dfn>
 
-## @extern
+* <dfn>@exp2</dfn>
 
-## @fabs
+* <dfn>@export</dfn>
 
-## @fence
+* <dfn>@extern</dfn>
 
-## @field
+* <dfn>@fabs</dfn>
 
-## @fieldParentPtr
+* <dfn>@fence</dfn>
 
-## @floatCast
+* <dfn>@field</dfn>
 
-## @floatToInt
+* <dfn>@fieldParentPtr</dfn>
 
-## @floor
+* <dfn>@floatCast</dfn>
 
-## @frame
+* <dfn>@floatToInt</dfn>
 
-## @Frame
+* <dfn>@floor</dfn>
 
-## @frameAddress
+<!-- * <dfn>@frame</dfn> -->
 
-## @frameSize
+* <dfn>@Frame</dfn>
 
-## @hasDecl
+* <dfn>@frameAddress</dfn>
 
-## @hasField
+* <dfn>@frameSize</dfn>
 
-## @import
+* <dfn>@hasDecl</dfn>
 
-## @intCast
+* <dfn>@hasField</dfn>
 
-## @intToEnum
+* <dfn>@import</dfn>
 
-## @intToError
+* <dfn>@intCast</dfn>
 
-## @intToFloat
+* <dfn>@intToEnum</dfn>
 
-## @intToPtr
+* <dfn>@intToError</dfn>
 
-## @log
+* <dfn>@intToFloat</dfn>
 
-## @log10
+* <dfn>@intToPtr</dfn>
 
-## @log2
+* <dfn>@log</dfn>
 
-## @maximum
+* <dfn>@log10</dfn>
 
-## @memcpy
+* <dfn>@log2</dfn>
 
-## @memset
+* <dfn>@maximum</dfn>
 
-## @minimum
+* <dfn>@memcpy</dfn>
 
-## @mod
+* <dfn>@memset</dfn>
 
-## @mulAdd
+* <dfn>@minimum</dfn>
 
-## @mulWithOverflow
+* <dfn>@mod</dfn>
 
-## @offsetOf
+* <dfn>@mulAdd</dfn>
 
-## @panic
+* <dfn>@mulWithOverflow</dfn>
 
-## @popCount
+* <dfn>@offsetOf</dfn>
 
-## @prefetch
+* <dfn>@panic</dfn>
 
-## @ptrCast
+* <dfn>@popCount</dfn>
 
-## @ptrToInt
+* <dfn>@prefetch</dfn>
 
-## @reduce
+* <dfn>@ptrCast</dfn>
 
-## @rem
+* <dfn>@ptrToInt</dfn>
 
-## @returnAddress
+* <dfn>@reduce</dfn>
 
-## @round
+* <dfn>@rem</dfn>
 
-## @select
+* <dfn>@returnAddress</dfn>
 
-## @setAlignStack
+* <dfn>@round</dfn>
 
-## @setCold
+* <dfn>@select</dfn>
 
-## @setEvalBranchQuota
+* <dfn>@setAlignStack</dfn>
 
-## @setFloatMode
+* <dfn>@setCold</dfn>
 
-## @setRuntimeSafety
+* <dfn>@setEvalBranchQuota</dfn>
 
-## @shlExact
+* <dfn>@setFloatMode</dfn>
 
-## @shlWithOverflow
+* <dfn>@setRuntimeSafety</dfn>
 
-## @shrExact
+* <dfn>@shlExact</dfn>
 
-## @shuffle
+* <dfn>@shlWithOverflow</dfn>
 
-## @sin
+* <dfn>@shrExact</dfn>
 
-## @sizeOf
+* <dfn>@shuffle</dfn>
 
-## @splat
+* <dfn>@sin</dfn>
 
-## @sqrt
+* <dfn>@sizeOf</dfn>
 
-## @src
+* <dfn>@splat</dfn>
 
-## @subWithOverflow
+* <dfn>@sqrt</dfn>
 
-## @tagName
+* <dfn>@src</dfn>
 
-## @tan
+* <dfn>@subWithOverflow</dfn>
 
-## @This
+* <dfn>@tagName</dfn>
 
-## @trunc
+* <dfn>@tan</dfn>
 
-## @truncate
+* <dfn>@This</dfn>
 
-## @Type
+* <dfn>@trunc</dfn>
 
-## @typeInfo
+* <dfn>@truncate</dfn>
 
-## @typeName
+* <dfn>@Type</dfn>
 
-## @TypeOf
+* <dfn>@typeInfo</dfn>
 
-## @unionInit
+* <dfn>@typeName</dfn>
 
-## @Vector
+* <dfn>@TypeOf</dfn>
 
-## @wasmMemoryGrow
+* <dfn>@unionInit</dfn>
 
-## @wasmMemorySize
+* <dfn>@Vector</dfn>
+
+* <dfn>@wasmMemoryGrow</dfn>
+
+* <dfn>@wasmMemorySize</dfn>
