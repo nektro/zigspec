@@ -1489,6 +1489,7 @@ Possible extra rowspan handling
 </style>
   <meta content="Bikeshed version fb1e763a4, updated Tue Mar 1 13:13:50 2022 -0800" name="generator">
   <link href="https://nektro.github.io/zigspec/" rel="canonical">
+  <meta content="69d801e0290350e73e580d2fadcaea3df609b3e1" name="document-revision">
 <style>/* style-autolinks */
 
 .css.css, .property.property, .descriptor.descriptor {
@@ -1918,6 +1919,162 @@ Parts of this work may be from another specification document.  If so, those par
     <li><a href="#scope"><span class="secno">2</span> <span class="content">Scope</span></a>
     <li><a href="#conformance"><span class="secno">3</span> <span class="content">Conformance</span></a>
     <li><a href="#overview"><span class="secno">4</span> <span class="content">Overview</span></a>
+    <li><a href="#source-text"><span class="secno">5</span> <span class="content">Source Text</span></a>
+    <li>
+     <a href="#lexical-grammar"><span class="secno">6</span> <span class="content">Lexical Grammar</span></a>
+     <ol class="toc">
+      <li><a href="#white-space"><span class="secno">6.1</span> <span class="content">White Space</span></a>
+      <li><a href="#line-terminators"><span class="secno">6.2</span> <span class="content">Line Terminators</span></a>
+      <li><a href="#comments"><span class="secno">6.3</span> <span class="content">Comments</span></a>
+      <li><a href="#tokens"><span class="secno">6.4</span> <span class="content">Tokens</span></a>
+      <li><a href="#identifiers"><span class="secno">6.5</span> <span class="content">Identifiers</span></a>
+      <li><a href="#keywords"><span class="secno">6.6</span> <span class="content">Keywords</span></a>
+      <li><a href="#literals"><span class="secno">6.7</span> <span class="content">Literals</span></a>
+      <li><a href="#operators"><span class="secno">6.8</span> <span class="content">Operators</span></a>
+     </ol>
+    <li>
+     <a href="#data-types-and-values"><span class="secno">7</span> <span class="content">Data Types and Values</span></a>
+     <ol class="toc">
+      <li><a href="#the-anyframe-type"><span class="secno">7.1</span> <span class="content">The AnyFrame Type</span></a>
+      <li><a href="#the-array-types"><span class="secno">7.2</span> <span class="content">The Array Types</span></a>
+      <li><a href="#the-bool-type"><span class="secno">7.3</span> <span class="content">The Bool Type</span></a>
+      <li><a href="#the-comptimefloat-type"><span class="secno">7.4</span> <span class="content">The ComptimeFloat Type</span></a>
+      <li><a href="#the-comptimeint-type"><span class="secno">7.5</span> <span class="content">The ComptimeInt Type</span></a>
+      <li><a href="#the-enum-types"><span class="secno">7.6</span> <span class="content">The Enum Types</span></a>
+      <li><a href="#the-enumliteral-type"><span class="secno">7.7</span> <span class="content">The EnumLiteral Type</span></a>
+      <li><a href="#the-errorset-types"><span class="secno">7.8</span> <span class="content">The ErrorSet Types</span></a>
+      <li><a href="#the-errorunion-types"><span class="secno">7.9</span> <span class="content">The ErrorUnion Types</span></a>
+      <li><a href="#the-float-types"><span class="secno">7.10</span> <span class="content">The Float Types</span></a>
+      <li><a href="#the-fn-types"><span class="secno">7.11</span> <span class="content">The Fn Types</span></a>
+      <li><a href="#the-frame-types"><span class="secno">7.12</span> <span class="content">The Frame Types</span></a>
+      <li><a href="#the-int-types"><span class="secno">7.13</span> <span class="content">The Int Types</span></a>
+      <li><a href="#the-noreturn-type"><span class="secno">7.14</span> <span class="content">The NoReturn Type</span></a>
+      <li><a href="#the-null-type"><span class="secno">7.15</span> <span class="content">The Null Type</span></a>
+      <li><a href="#the-opaque-types"><span class="secno">7.16</span> <span class="content">The Opaque Types</span></a>
+      <li><a href="#the-optional-types"><span class="secno">7.17</span> <span class="content">The Optional Types</span></a>
+      <li><a href="#the-pointer-types"><span class="secno">7.18</span> <span class="content">The Pointer Types</span></a>
+      <li><a href="#the-struct-types"><span class="secno">7.19</span> <span class="content">The Struct Types</span></a>
+      <li><a href="#the-type-type"><span class="secno">7.20</span> <span class="content">The Type Type</span></a>
+      <li><a href="#the-undefined-type"><span class="secno">7.21</span> <span class="content">The Undefined Type</span></a>
+      <li><a href="#the-union-types"><span class="secno">7.22</span> <span class="content">The Union Types</span></a>
+      <li><a href="#the-vector-types"><span class="secno">7.23</span> <span class="content">The Vector Types</span></a>
+      <li><a href="#the-void-type"><span class="secno">7.24</span> <span class="content">The Void Type</span></a>
+     </ol>
+    <li><a href="#expressions"><span class="secno">8</span> <span class="content">Expressions</span></a>
+    <li><a href="#statements-and-declarations"><span class="secno">9</span> <span class="content">Statements and Declarations</span></a>
+    <li>
+     <a href="#compiler-builtins"><span class="secno">10</span> <span class="content">Compiler Builtins</span></a>
+     <ol class="toc">
+      <li><a href="#addwithoverflow"><span class="secno">10.1</span> <span class="content">@addWithOverflow</span></a>
+      <li><a href="#aligncast"><span class="secno">10.2</span> <span class="content">@alignCast</span></a>
+      <li><a href="#alignof"><span class="secno">10.3</span> <span class="content">@alignOf</span></a>
+      <li><a href="#as"><span class="secno">10.4</span> <span class="content">@as</span></a>
+      <li><a href="#asynccall"><span class="secno">10.5</span> <span class="content">@asyncCall</span></a>
+      <li><a href="#atomicload"><span class="secno">10.6</span> <span class="content">@atomicLoad</span></a>
+      <li><a href="#atomicrmw"><span class="secno">10.7</span> <span class="content">@atomicRmw</span></a>
+      <li><a href="#atomicstore"><span class="secno">10.8</span> <span class="content">@atomicStore</span></a>
+      <li><a href="#bitcast"><span class="secno">10.9</span> <span class="content">@bitCast</span></a>
+      <li><a href="#bitoffsetof"><span class="secno">10.10</span> <span class="content">@bitOffsetOf</span></a>
+      <li><a href="#bitreverse"><span class="secno">10.11</span> <span class="content">@bitReverse</span></a>
+      <li><a href="#bitsizeof"><span class="secno">10.12</span> <span class="content">@bitSizeOf</span></a>
+      <li><a href="#booltoint"><span class="secno">10.13</span> <span class="content">@boolToInt</span></a>
+      <li><a href="#breakpoint"><span class="secno">10.14</span> <span class="content">@breakpoint</span></a>
+      <li><a href="#byteswap"><span class="secno">10.15</span> <span class="content">@byteSwap</span></a>
+      <li><a href="#call"><span class="secno">10.16</span> <span class="content">@call</span></a>
+      <li><a href="#cdefine"><span class="secno">10.17</span> <span class="content">@cDefine</span></a>
+      <li><a href="#ceil"><span class="secno">10.18</span> <span class="content">@ceil</span></a>
+      <li><a href="#cimport"><span class="secno">10.19</span> <span class="content">@cImport</span></a>
+      <li><a href="#cinclude"><span class="secno">10.20</span> <span class="content">@cInclude</span></a>
+      <li><a href="#clz"><span class="secno">10.21</span> <span class="content">@clz</span></a>
+      <li><a href="#cmpxchgstrong"><span class="secno">10.22</span> <span class="content">@cmpxchgStrong</span></a>
+      <li><a href="#cmpxchgweak"><span class="secno">10.23</span> <span class="content">@cmpxchgWeak</span></a>
+      <li><a href="#compileerror"><span class="secno">10.24</span> <span class="content">@compileError</span></a>
+      <li><a href="#compilelog"><span class="secno">10.25</span> <span class="content">@compileLog</span></a>
+      <li><a href="#cos"><span class="secno">10.26</span> <span class="content">@cos</span></a>
+      <li><a href="#ctz"><span class="secno">10.27</span> <span class="content">@ctz</span></a>
+      <li><a href="#cundef"><span class="secno">10.28</span> <span class="content">@cUndef</span></a>
+      <li><a href="#divexact"><span class="secno">10.29</span> <span class="content">@divExact</span></a>
+      <li><a href="#divfloor"><span class="secno">10.30</span> <span class="content">@divFloor</span></a>
+      <li><a href="#divtrunc"><span class="secno">10.31</span> <span class="content">@divTrunc</span></a>
+      <li><a href="#embedfile"><span class="secno">10.32</span> <span class="content">@embedFile</span></a>
+      <li><a href="#enumtoint"><span class="secno">10.33</span> <span class="content">@enumToInt</span></a>
+      <li><a href="#errorname"><span class="secno">10.34</span> <span class="content">@errorName</span></a>
+      <li><a href="#errorreturntrace"><span class="secno">10.35</span> <span class="content">@errorReturnTrace</span></a>
+      <li><a href="#errortoint"><span class="secno">10.36</span> <span class="content">@errorToInt</span></a>
+      <li><a href="#errsetcast"><span class="secno">10.37</span> <span class="content">@errSetCast</span></a>
+      <li><a href="#exp"><span class="secno">10.38</span> <span class="content">@exp</span></a>
+      <li><a href="#exp2"><span class="secno">10.39</span> <span class="content">@exp2</span></a>
+      <li><a href="#export"><span class="secno">10.40</span> <span class="content">@export</span></a>
+      <li><a href="#extern"><span class="secno">10.41</span> <span class="content">@extern</span></a>
+      <li><a href="#fabs"><span class="secno">10.42</span> <span class="content">@fabs</span></a>
+      <li><a href="#fence"><span class="secno">10.43</span> <span class="content">@fence</span></a>
+      <li><a href="#field"><span class="secno">10.44</span> <span class="content">@field</span></a>
+      <li><a href="#fieldparentptr"><span class="secno">10.45</span> <span class="content">@fieldParentPtr</span></a>
+      <li><a href="#floatcast"><span class="secno">10.46</span> <span class="content">@floatCast</span></a>
+      <li><a href="#floattoint"><span class="secno">10.47</span> <span class="content">@floatToInt</span></a>
+      <li><a href="#floor"><span class="secno">10.48</span> <span class="content">@floor</span></a>
+      <li><a href="#frame"><span class="secno">10.49</span> <span class="content">@frame</span></a>
+      <li><a href="#frame①"><span class="secno">10.50</span> <span class="content">@Frame</span></a>
+      <li><a href="#frameaddress"><span class="secno">10.51</span> <span class="content">@frameAddress</span></a>
+      <li><a href="#framesize"><span class="secno">10.52</span> <span class="content">@frameSize</span></a>
+      <li><a href="#hasdecl"><span class="secno">10.53</span> <span class="content">@hasDecl</span></a>
+      <li><a href="#hasfield"><span class="secno">10.54</span> <span class="content">@hasField</span></a>
+      <li><a href="#import"><span class="secno">10.55</span> <span class="content">@import</span></a>
+      <li><a href="#intcast"><span class="secno">10.56</span> <span class="content">@intCast</span></a>
+      <li><a href="#inttoenum"><span class="secno">10.57</span> <span class="content">@intToEnum</span></a>
+      <li><a href="#inttoerror"><span class="secno">10.58</span> <span class="content">@intToError</span></a>
+      <li><a href="#inttofloat"><span class="secno">10.59</span> <span class="content">@intToFloat</span></a>
+      <li><a href="#inttoptr"><span class="secno">10.60</span> <span class="content">@intToPtr</span></a>
+      <li><a href="#log"><span class="secno">10.61</span> <span class="content">@log</span></a>
+      <li><a href="#log10"><span class="secno">10.62</span> <span class="content">@log10</span></a>
+      <li><a href="#log2"><span class="secno">10.63</span> <span class="content">@log2</span></a>
+      <li><a href="#maximum"><span class="secno">10.64</span> <span class="content">@maximum</span></a>
+      <li><a href="#memcpy"><span class="secno">10.65</span> <span class="content">@memcpy</span></a>
+      <li><a href="#memset"><span class="secno">10.66</span> <span class="content">@memset</span></a>
+      <li><a href="#minimum"><span class="secno">10.67</span> <span class="content">@minimum</span></a>
+      <li><a href="#mod"><span class="secno">10.68</span> <span class="content">@mod</span></a>
+      <li><a href="#muladd"><span class="secno">10.69</span> <span class="content">@mulAdd</span></a>
+      <li><a href="#mulwithoverflow"><span class="secno">10.70</span> <span class="content">@mulWithOverflow</span></a>
+      <li><a href="#offsetof"><span class="secno">10.71</span> <span class="content">@offsetOf</span></a>
+      <li><a href="#panic"><span class="secno">10.72</span> <span class="content">@panic</span></a>
+      <li><a href="#popcount"><span class="secno">10.73</span> <span class="content">@popCount</span></a>
+      <li><a href="#prefetch"><span class="secno">10.74</span> <span class="content">@prefetch</span></a>
+      <li><a href="#ptrcast"><span class="secno">10.75</span> <span class="content">@ptrCast</span></a>
+      <li><a href="#ptrtoint"><span class="secno">10.76</span> <span class="content">@ptrToInt</span></a>
+      <li><a href="#reduce"><span class="secno">10.77</span> <span class="content">@reduce</span></a>
+      <li><a href="#rem"><span class="secno">10.78</span> <span class="content">@rem</span></a>
+      <li><a href="#returnaddress"><span class="secno">10.79</span> <span class="content">@returnAddress</span></a>
+      <li><a href="#round"><span class="secno">10.80</span> <span class="content">@round</span></a>
+      <li><a href="#select"><span class="secno">10.81</span> <span class="content">@select</span></a>
+      <li><a href="#setalignstack"><span class="secno">10.82</span> <span class="content">@setAlignStack</span></a>
+      <li><a href="#setcold"><span class="secno">10.83</span> <span class="content">@setCold</span></a>
+      <li><a href="#setevalbranchquota"><span class="secno">10.84</span> <span class="content">@setEvalBranchQuota</span></a>
+      <li><a href="#setfloatmode"><span class="secno">10.85</span> <span class="content">@setFloatMode</span></a>
+      <li><a href="#setruntimesafety"><span class="secno">10.86</span> <span class="content">@setRuntimeSafety</span></a>
+      <li><a href="#shlexact"><span class="secno">10.87</span> <span class="content">@shlExact</span></a>
+      <li><a href="#shlwithoverflow"><span class="secno">10.88</span> <span class="content">@shlWithOverflow</span></a>
+      <li><a href="#shrexact"><span class="secno">10.89</span> <span class="content">@shrExact</span></a>
+      <li><a href="#shuffle"><span class="secno">10.90</span> <span class="content">@shuffle</span></a>
+      <li><a href="#sin"><span class="secno">10.91</span> <span class="content">@sin</span></a>
+      <li><a href="#sizeof"><span class="secno">10.92</span> <span class="content">@sizeOf</span></a>
+      <li><a href="#splat"><span class="secno">10.93</span> <span class="content">@splat</span></a>
+      <li><a href="#sqrt"><span class="secno">10.94</span> <span class="content">@sqrt</span></a>
+      <li><a href="#src"><span class="secno">10.95</span> <span class="content">@src</span></a>
+      <li><a href="#subwithoverflow"><span class="secno">10.96</span> <span class="content">@subWithOverflow</span></a>
+      <li><a href="#tagname"><span class="secno">10.97</span> <span class="content">@tagName</span></a>
+      <li><a href="#tan"><span class="secno">10.98</span> <span class="content">@tan</span></a>
+      <li><a href="#this"><span class="secno">10.99</span> <span class="content">@This</span></a>
+      <li><a href="#trunc"><span class="secno">10.100</span> <span class="content">@trunc</span></a>
+      <li><a href="#truncate"><span class="secno">10.101</span> <span class="content">@truncate</span></a>
+      <li><a href="#type"><span class="secno">10.102</span> <span class="content">@Type</span></a>
+      <li><a href="#typeinfo"><span class="secno">10.103</span> <span class="content">@typeInfo</span></a>
+      <li><a href="#typename"><span class="secno">10.104</span> <span class="content">@typeName</span></a>
+      <li><a href="#typeof"><span class="secno">10.105</span> <span class="content">@TypeOf</span></a>
+      <li><a href="#unioninit"><span class="secno">10.106</span> <span class="content">@unionInit</span></a>
+      <li><a href="#vector"><span class="secno">10.107</span> <span class="content">@Vector</span></a>
+      <li><a href="#wasmmemorygrow"><span class="secno">10.108</span> <span class="content">@wasmMemoryGrow</span></a>
+      <li><a href="#wasmmemorysize"><span class="secno">10.109</span> <span class="content">@wasmMemorySize</span></a>
+     </ol>
     <li>
      <a href="#references"><span class="secno"></span> <span class="content">References</span></a>
      <ol class="toc">
@@ -1962,6 +2119,155 @@ Parts of this work may be from another specification document.  If so, those par
     <dd data-md>
      <p>Precisely communicate intent to the compiler and other programmers. The language imposes a low overhead to reading code and is resilient to changing requirements and environments.</p>
    </dl>
+   <h2 class="heading settled" data-level="5" id="source-text"><span class="secno">5. </span><span class="content">Source Text</span><a class="self-link" href="#source-text"></a></h2>
+   <h2 class="heading settled" data-level="6" id="lexical-grammar"><span class="secno">6. </span><span class="content">Lexical Grammar</span><a class="self-link" href="#lexical-grammar"></a></h2>
+   <h3 class="heading settled" data-level="6.1" id="white-space"><span class="secno">6.1. </span><span class="content">White Space</span><a class="self-link" href="#white-space"></a></h3>
+   <h3 class="heading settled" data-level="6.2" id="line-terminators"><span class="secno">6.2. </span><span class="content">Line Terminators</span><a class="self-link" href="#line-terminators"></a></h3>
+   <h3 class="heading settled" data-level="6.3" id="comments"><span class="secno">6.3. </span><span class="content">Comments</span><a class="self-link" href="#comments"></a></h3>
+   <h3 class="heading settled" data-level="6.4" id="tokens"><span class="secno">6.4. </span><span class="content">Tokens</span><a class="self-link" href="#tokens"></a></h3>
+   <h3 class="heading settled" data-level="6.5" id="identifiers"><span class="secno">6.5. </span><span class="content">Identifiers</span><a class="self-link" href="#identifiers"></a></h3>
+   <h3 class="heading settled" data-level="6.6" id="keywords"><span class="secno">6.6. </span><span class="content">Keywords</span><a class="self-link" href="#keywords"></a></h3>
+   <h3 class="heading settled" data-level="6.7" id="literals"><span class="secno">6.7. </span><span class="content">Literals</span><a class="self-link" href="#literals"></a></h3>
+   <h3 class="heading settled" data-level="6.8" id="operators"><span class="secno">6.8. </span><span class="content">Operators</span><a class="self-link" href="#operators"></a></h3>
+   <h2 class="heading settled" data-level="7" id="data-types-and-values"><span class="secno">7. </span><span class="content">Data Types and Values</span><a class="self-link" href="#data-types-and-values"></a></h2>
+   <p>Algorithms within this specification manipulate values each of which has an associated type. The possible value types are exactly those defined in this clause.</p>
+   <p>Within this specification, the notation "Type(<em>x</em>)" is used as shorthand for "<em>the type of x</em>" where "type" refers to the Zig language and specification types defined in this clause.</p>
+   <h3 class="heading settled" data-level="7.1" id="the-anyframe-type"><span class="secno">7.1. </span><span class="content">The AnyFrame Type</span><a class="self-link" href="#the-anyframe-type"></a></h3>
+   <h3 class="heading settled" data-level="7.2" id="the-array-types"><span class="secno">7.2. </span><span class="content">The Array Types</span><a class="self-link" href="#the-array-types"></a></h3>
+   <h3 class="heading settled" data-level="7.3" id="the-bool-type"><span class="secno">7.3. </span><span class="content">The Bool Type</span><a class="self-link" href="#the-bool-type"></a></h3>
+   <h3 class="heading settled" data-level="7.4" id="the-comptimefloat-type"><span class="secno">7.4. </span><span class="content">The ComptimeFloat Type</span><a class="self-link" href="#the-comptimefloat-type"></a></h3>
+   <h3 class="heading settled" data-level="7.5" id="the-comptimeint-type"><span class="secno">7.5. </span><span class="content">The ComptimeInt Type</span><a class="self-link" href="#the-comptimeint-type"></a></h3>
+   <h3 class="heading settled" data-level="7.6" id="the-enum-types"><span class="secno">7.6. </span><span class="content">The Enum Types</span><a class="self-link" href="#the-enum-types"></a></h3>
+   <h3 class="heading settled" data-level="7.7" id="the-enumliteral-type"><span class="secno">7.7. </span><span class="content">The EnumLiteral Type</span><a class="self-link" href="#the-enumliteral-type"></a></h3>
+   <h3 class="heading settled" data-level="7.8" id="the-errorset-types"><span class="secno">7.8. </span><span class="content">The ErrorSet Types</span><a class="self-link" href="#the-errorset-types"></a></h3>
+   <h3 class="heading settled" data-level="7.9" id="the-errorunion-types"><span class="secno">7.9. </span><span class="content">The ErrorUnion Types</span><a class="self-link" href="#the-errorunion-types"></a></h3>
+   <h3 class="heading settled" data-level="7.10" id="the-float-types"><span class="secno">7.10. </span><span class="content">The Float Types</span><a class="self-link" href="#the-float-types"></a></h3>
+   <h3 class="heading settled" data-level="7.11" id="the-fn-types"><span class="secno">7.11. </span><span class="content">The Fn Types</span><a class="self-link" href="#the-fn-types"></a></h3>
+   <h3 class="heading settled" data-level="7.12" id="the-frame-types"><span class="secno">7.12. </span><span class="content">The Frame Types</span><a class="self-link" href="#the-frame-types"></a></h3>
+   <h3 class="heading settled" data-level="7.13" id="the-int-types"><span class="secno">7.13. </span><span class="content">The Int Types</span><a class="self-link" href="#the-int-types"></a></h3>
+   <h3 class="heading settled" data-level="7.14" id="the-noreturn-type"><span class="secno">7.14. </span><span class="content">The NoReturn Type</span><a class="self-link" href="#the-noreturn-type"></a></h3>
+   <h3 class="heading settled" data-level="7.15" id="the-null-type"><span class="secno">7.15. </span><span class="content">The Null Type</span><a class="self-link" href="#the-null-type"></a></h3>
+   <h3 class="heading settled" data-level="7.16" id="the-opaque-types"><span class="secno">7.16. </span><span class="content">The Opaque Types</span><a class="self-link" href="#the-opaque-types"></a></h3>
+   <h3 class="heading settled" data-level="7.17" id="the-optional-types"><span class="secno">7.17. </span><span class="content">The Optional Types</span><a class="self-link" href="#the-optional-types"></a></h3>
+   <h3 class="heading settled" data-level="7.18" id="the-pointer-types"><span class="secno">7.18. </span><span class="content">The Pointer Types</span><a class="self-link" href="#the-pointer-types"></a></h3>
+   <h3 class="heading settled" data-level="7.19" id="the-struct-types"><span class="secno">7.19. </span><span class="content">The Struct Types</span><a class="self-link" href="#the-struct-types"></a></h3>
+   <h3 class="heading settled" data-level="7.20" id="the-type-type"><span class="secno">7.20. </span><span class="content">The Type Type</span><a class="self-link" href="#the-type-type"></a></h3>
+   <h3 class="heading settled" data-level="7.21" id="the-undefined-type"><span class="secno">7.21. </span><span class="content">The Undefined Type</span><a class="self-link" href="#the-undefined-type"></a></h3>
+   <h3 class="heading settled" data-level="7.22" id="the-union-types"><span class="secno">7.22. </span><span class="content">The Union Types</span><a class="self-link" href="#the-union-types"></a></h3>
+   <h3 class="heading settled" data-level="7.23" id="the-vector-types"><span class="secno">7.23. </span><span class="content">The Vector Types</span><a class="self-link" href="#the-vector-types"></a></h3>
+   <h3 class="heading settled" data-level="7.24" id="the-void-type"><span class="secno">7.24. </span><span class="content">The Void Type</span><a class="self-link" href="#the-void-type"></a></h3>
+   <h2 class="heading settled" data-level="8" id="expressions"><span class="secno">8. </span><span class="content">Expressions</span><a class="self-link" href="#expressions"></a></h2>
+   <h2 class="heading settled" data-level="9" id="statements-and-declarations"><span class="secno">9. </span><span class="content">Statements and Declarations</span><a class="self-link" href="#statements-and-declarations"></a></h2>
+   <h2 class="heading settled" data-level="10" id="compiler-builtins"><span class="secno">10. </span><span class="content">Compiler Builtins</span><a class="self-link" href="#compiler-builtins"></a></h2>
+   <h3 class="heading settled" data-level="10.1" id="addwithoverflow"><span class="secno">10.1. </span><span class="content">@addWithOverflow</span><a class="self-link" href="#addwithoverflow"></a></h3>
+   <h3 class="heading settled" data-level="10.2" id="aligncast"><span class="secno">10.2. </span><span class="content">@alignCast</span><a class="self-link" href="#aligncast"></a></h3>
+   <h3 class="heading settled" data-level="10.3" id="alignof"><span class="secno">10.3. </span><span class="content">@alignOf</span><a class="self-link" href="#alignof"></a></h3>
+   <h3 class="heading settled" data-level="10.4" id="as"><span class="secno">10.4. </span><span class="content">@as</span><a class="self-link" href="#as"></a></h3>
+   <h3 class="heading settled" data-level="10.5" id="asynccall"><span class="secno">10.5. </span><span class="content">@asyncCall</span><a class="self-link" href="#asynccall"></a></h3>
+   <h3 class="heading settled" data-level="10.6" id="atomicload"><span class="secno">10.6. </span><span class="content">@atomicLoad</span><a class="self-link" href="#atomicload"></a></h3>
+   <h3 class="heading settled" data-level="10.7" id="atomicrmw"><span class="secno">10.7. </span><span class="content">@atomicRmw</span><a class="self-link" href="#atomicrmw"></a></h3>
+   <h3 class="heading settled" data-level="10.8" id="atomicstore"><span class="secno">10.8. </span><span class="content">@atomicStore</span><a class="self-link" href="#atomicstore"></a></h3>
+   <h3 class="heading settled" data-level="10.9" id="bitcast"><span class="secno">10.9. </span><span class="content">@bitCast</span><a class="self-link" href="#bitcast"></a></h3>
+   <h3 class="heading settled" data-level="10.10" id="bitoffsetof"><span class="secno">10.10. </span><span class="content">@bitOffsetOf</span><a class="self-link" href="#bitoffsetof"></a></h3>
+   <h3 class="heading settled" data-level="10.11" id="bitreverse"><span class="secno">10.11. </span><span class="content">@bitReverse</span><a class="self-link" href="#bitreverse"></a></h3>
+   <h3 class="heading settled" data-level="10.12" id="bitsizeof"><span class="secno">10.12. </span><span class="content">@bitSizeOf</span><a class="self-link" href="#bitsizeof"></a></h3>
+   <h3 class="heading settled" data-level="10.13" id="booltoint"><span class="secno">10.13. </span><span class="content">@boolToInt</span><a class="self-link" href="#booltoint"></a></h3>
+   <h3 class="heading settled" data-level="10.14" id="breakpoint"><span class="secno">10.14. </span><span class="content">@breakpoint</span><a class="self-link" href="#breakpoint"></a></h3>
+   <h3 class="heading settled" data-level="10.15" id="byteswap"><span class="secno">10.15. </span><span class="content">@byteSwap</span><a class="self-link" href="#byteswap"></a></h3>
+   <h3 class="heading settled" data-level="10.16" id="call"><span class="secno">10.16. </span><span class="content">@call</span><a class="self-link" href="#call"></a></h3>
+   <h3 class="heading settled" data-level="10.17" id="cdefine"><span class="secno">10.17. </span><span class="content">@cDefine</span><a class="self-link" href="#cdefine"></a></h3>
+   <h3 class="heading settled" data-level="10.18" id="ceil"><span class="secno">10.18. </span><span class="content">@ceil</span><a class="self-link" href="#ceil"></a></h3>
+   <h3 class="heading settled" data-level="10.19" id="cimport"><span class="secno">10.19. </span><span class="content">@cImport</span><a class="self-link" href="#cimport"></a></h3>
+   <h3 class="heading settled" data-level="10.20" id="cinclude"><span class="secno">10.20. </span><span class="content">@cInclude</span><a class="self-link" href="#cinclude"></a></h3>
+   <h3 class="heading settled" data-level="10.21" id="clz"><span class="secno">10.21. </span><span class="content">@clz</span><a class="self-link" href="#clz"></a></h3>
+   <h3 class="heading settled" data-level="10.22" id="cmpxchgstrong"><span class="secno">10.22. </span><span class="content">@cmpxchgStrong</span><a class="self-link" href="#cmpxchgstrong"></a></h3>
+   <h3 class="heading settled" data-level="10.23" id="cmpxchgweak"><span class="secno">10.23. </span><span class="content">@cmpxchgWeak</span><a class="self-link" href="#cmpxchgweak"></a></h3>
+   <h3 class="heading settled" data-level="10.24" id="compileerror"><span class="secno">10.24. </span><span class="content">@compileError</span><a class="self-link" href="#compileerror"></a></h3>
+   <h3 class="heading settled" data-level="10.25" id="compilelog"><span class="secno">10.25. </span><span class="content">@compileLog</span><a class="self-link" href="#compilelog"></a></h3>
+   <h3 class="heading settled" data-level="10.26" id="cos"><span class="secno">10.26. </span><span class="content">@cos</span><a class="self-link" href="#cos"></a></h3>
+   <h3 class="heading settled" data-level="10.27" id="ctz"><span class="secno">10.27. </span><span class="content">@ctz</span><a class="self-link" href="#ctz"></a></h3>
+   <h3 class="heading settled" data-level="10.28" id="cundef"><span class="secno">10.28. </span><span class="content">@cUndef</span><a class="self-link" href="#cundef"></a></h3>
+   <h3 class="heading settled" data-level="10.29" id="divexact"><span class="secno">10.29. </span><span class="content">@divExact</span><a class="self-link" href="#divexact"></a></h3>
+   <h3 class="heading settled" data-level="10.30" id="divfloor"><span class="secno">10.30. </span><span class="content">@divFloor</span><a class="self-link" href="#divfloor"></a></h3>
+   <h3 class="heading settled" data-level="10.31" id="divtrunc"><span class="secno">10.31. </span><span class="content">@divTrunc</span><a class="self-link" href="#divtrunc"></a></h3>
+   <h3 class="heading settled" data-level="10.32" id="embedfile"><span class="secno">10.32. </span><span class="content">@embedFile</span><a class="self-link" href="#embedfile"></a></h3>
+   <h3 class="heading settled" data-level="10.33" id="enumtoint"><span class="secno">10.33. </span><span class="content">@enumToInt</span><a class="self-link" href="#enumtoint"></a></h3>
+   <h3 class="heading settled" data-level="10.34" id="errorname"><span class="secno">10.34. </span><span class="content">@errorName</span><a class="self-link" href="#errorname"></a></h3>
+   <h3 class="heading settled" data-level="10.35" id="errorreturntrace"><span class="secno">10.35. </span><span class="content">@errorReturnTrace</span><a class="self-link" href="#errorreturntrace"></a></h3>
+   <h3 class="heading settled" data-level="10.36" id="errortoint"><span class="secno">10.36. </span><span class="content">@errorToInt</span><a class="self-link" href="#errortoint"></a></h3>
+   <h3 class="heading settled" data-level="10.37" id="errsetcast"><span class="secno">10.37. </span><span class="content">@errSetCast</span><a class="self-link" href="#errsetcast"></a></h3>
+   <h3 class="heading settled" data-level="10.38" id="exp"><span class="secno">10.38. </span><span class="content">@exp</span><a class="self-link" href="#exp"></a></h3>
+   <h3 class="heading settled" data-level="10.39" id="exp2"><span class="secno">10.39. </span><span class="content">@exp2</span><a class="self-link" href="#exp2"></a></h3>
+   <h3 class="heading settled" data-level="10.40" id="export"><span class="secno">10.40. </span><span class="content">@export</span><a class="self-link" href="#export"></a></h3>
+   <h3 class="heading settled" data-level="10.41" id="extern"><span class="secno">10.41. </span><span class="content">@extern</span><a class="self-link" href="#extern"></a></h3>
+   <h3 class="heading settled" data-level="10.42" id="fabs"><span class="secno">10.42. </span><span class="content">@fabs</span><a class="self-link" href="#fabs"></a></h3>
+   <h3 class="heading settled" data-level="10.43" id="fence"><span class="secno">10.43. </span><span class="content">@fence</span><a class="self-link" href="#fence"></a></h3>
+   <h3 class="heading settled" data-level="10.44" id="field"><span class="secno">10.44. </span><span class="content">@field</span><a class="self-link" href="#field"></a></h3>
+   <h3 class="heading settled" data-level="10.45" id="fieldparentptr"><span class="secno">10.45. </span><span class="content">@fieldParentPtr</span><a class="self-link" href="#fieldparentptr"></a></h3>
+   <h3 class="heading settled" data-level="10.46" id="floatcast"><span class="secno">10.46. </span><span class="content">@floatCast</span><a class="self-link" href="#floatcast"></a></h3>
+   <h3 class="heading settled" data-level="10.47" id="floattoint"><span class="secno">10.47. </span><span class="content">@floatToInt</span><a class="self-link" href="#floattoint"></a></h3>
+   <h3 class="heading settled" data-level="10.48" id="floor"><span class="secno">10.48. </span><span class="content">@floor</span><a class="self-link" href="#floor"></a></h3>
+   <h3 class="heading settled" data-level="10.49" id="frame"><span class="secno">10.49. </span><span class="content">@frame</span><a class="self-link" href="#frame"></a></h3>
+   <h3 class="heading settled" data-level="10.50" id="frame①"><span class="secno">10.50. </span><span class="content">@Frame</span><a class="self-link" href="#frame①"></a></h3>
+   <h3 class="heading settled" data-level="10.51" id="frameaddress"><span class="secno">10.51. </span><span class="content">@frameAddress</span><a class="self-link" href="#frameaddress"></a></h3>
+   <h3 class="heading settled" data-level="10.52" id="framesize"><span class="secno">10.52. </span><span class="content">@frameSize</span><a class="self-link" href="#framesize"></a></h3>
+   <h3 class="heading settled" data-level="10.53" id="hasdecl"><span class="secno">10.53. </span><span class="content">@hasDecl</span><a class="self-link" href="#hasdecl"></a></h3>
+   <h3 class="heading settled" data-level="10.54" id="hasfield"><span class="secno">10.54. </span><span class="content">@hasField</span><a class="self-link" href="#hasfield"></a></h3>
+   <h3 class="heading settled" data-level="10.55" id="import"><span class="secno">10.55. </span><span class="content">@import</span><a class="self-link" href="#import"></a></h3>
+   <h3 class="heading settled" data-level="10.56" id="intcast"><span class="secno">10.56. </span><span class="content">@intCast</span><a class="self-link" href="#intcast"></a></h3>
+   <h3 class="heading settled" data-level="10.57" id="inttoenum"><span class="secno">10.57. </span><span class="content">@intToEnum</span><a class="self-link" href="#inttoenum"></a></h3>
+   <h3 class="heading settled" data-level="10.58" id="inttoerror"><span class="secno">10.58. </span><span class="content">@intToError</span><a class="self-link" href="#inttoerror"></a></h3>
+   <h3 class="heading settled" data-level="10.59" id="inttofloat"><span class="secno">10.59. </span><span class="content">@intToFloat</span><a class="self-link" href="#inttofloat"></a></h3>
+   <h3 class="heading settled" data-level="10.60" id="inttoptr"><span class="secno">10.60. </span><span class="content">@intToPtr</span><a class="self-link" href="#inttoptr"></a></h3>
+   <h3 class="heading settled" data-level="10.61" id="log"><span class="secno">10.61. </span><span class="content">@log</span><a class="self-link" href="#log"></a></h3>
+   <h3 class="heading settled" data-level="10.62" id="log10"><span class="secno">10.62. </span><span class="content">@log10</span><a class="self-link" href="#log10"></a></h3>
+   <h3 class="heading settled" data-level="10.63" id="log2"><span class="secno">10.63. </span><span class="content">@log2</span><a class="self-link" href="#log2"></a></h3>
+   <h3 class="heading settled" data-level="10.64" id="maximum"><span class="secno">10.64. </span><span class="content">@maximum</span><a class="self-link" href="#maximum"></a></h3>
+   <h3 class="heading settled" data-level="10.65" id="memcpy"><span class="secno">10.65. </span><span class="content">@memcpy</span><a class="self-link" href="#memcpy"></a></h3>
+   <h3 class="heading settled" data-level="10.66" id="memset"><span class="secno">10.66. </span><span class="content">@memset</span><a class="self-link" href="#memset"></a></h3>
+   <h3 class="heading settled" data-level="10.67" id="minimum"><span class="secno">10.67. </span><span class="content">@minimum</span><a class="self-link" href="#minimum"></a></h3>
+   <h3 class="heading settled" data-level="10.68" id="mod"><span class="secno">10.68. </span><span class="content">@mod</span><a class="self-link" href="#mod"></a></h3>
+   <h3 class="heading settled" data-level="10.69" id="muladd"><span class="secno">10.69. </span><span class="content">@mulAdd</span><a class="self-link" href="#muladd"></a></h3>
+   <h3 class="heading settled" data-level="10.70" id="mulwithoverflow"><span class="secno">10.70. </span><span class="content">@mulWithOverflow</span><a class="self-link" href="#mulwithoverflow"></a></h3>
+   <h3 class="heading settled" data-level="10.71" id="offsetof"><span class="secno">10.71. </span><span class="content">@offsetOf</span><a class="self-link" href="#offsetof"></a></h3>
+   <h3 class="heading settled" data-level="10.72" id="panic"><span class="secno">10.72. </span><span class="content">@panic</span><a class="self-link" href="#panic"></a></h3>
+   <h3 class="heading settled" data-level="10.73" id="popcount"><span class="secno">10.73. </span><span class="content">@popCount</span><a class="self-link" href="#popcount"></a></h3>
+   <h3 class="heading settled" data-level="10.74" id="prefetch"><span class="secno">10.74. </span><span class="content">@prefetch</span><a class="self-link" href="#prefetch"></a></h3>
+   <h3 class="heading settled" data-level="10.75" id="ptrcast"><span class="secno">10.75. </span><span class="content">@ptrCast</span><a class="self-link" href="#ptrcast"></a></h3>
+   <h3 class="heading settled" data-level="10.76" id="ptrtoint"><span class="secno">10.76. </span><span class="content">@ptrToInt</span><a class="self-link" href="#ptrtoint"></a></h3>
+   <h3 class="heading settled" data-level="10.77" id="reduce"><span class="secno">10.77. </span><span class="content">@reduce</span><a class="self-link" href="#reduce"></a></h3>
+   <h3 class="heading settled" data-level="10.78" id="rem"><span class="secno">10.78. </span><span class="content">@rem</span><a class="self-link" href="#rem"></a></h3>
+   <h3 class="heading settled" data-level="10.79" id="returnaddress"><span class="secno">10.79. </span><span class="content">@returnAddress</span><a class="self-link" href="#returnaddress"></a></h3>
+   <h3 class="heading settled" data-level="10.80" id="round"><span class="secno">10.80. </span><span class="content">@round</span><a class="self-link" href="#round"></a></h3>
+   <h3 class="heading settled" data-level="10.81" id="select"><span class="secno">10.81. </span><span class="content">@select</span><a class="self-link" href="#select"></a></h3>
+   <h3 class="heading settled" data-level="10.82" id="setalignstack"><span class="secno">10.82. </span><span class="content">@setAlignStack</span><a class="self-link" href="#setalignstack"></a></h3>
+   <h3 class="heading settled" data-level="10.83" id="setcold"><span class="secno">10.83. </span><span class="content">@setCold</span><a class="self-link" href="#setcold"></a></h3>
+   <h3 class="heading settled" data-level="10.84" id="setevalbranchquota"><span class="secno">10.84. </span><span class="content">@setEvalBranchQuota</span><a class="self-link" href="#setevalbranchquota"></a></h3>
+   <h3 class="heading settled" data-level="10.85" id="setfloatmode"><span class="secno">10.85. </span><span class="content">@setFloatMode</span><a class="self-link" href="#setfloatmode"></a></h3>
+   <h3 class="heading settled" data-level="10.86" id="setruntimesafety"><span class="secno">10.86. </span><span class="content">@setRuntimeSafety</span><a class="self-link" href="#setruntimesafety"></a></h3>
+   <h3 class="heading settled" data-level="10.87" id="shlexact"><span class="secno">10.87. </span><span class="content">@shlExact</span><a class="self-link" href="#shlexact"></a></h3>
+   <h3 class="heading settled" data-level="10.88" id="shlwithoverflow"><span class="secno">10.88. </span><span class="content">@shlWithOverflow</span><a class="self-link" href="#shlwithoverflow"></a></h3>
+   <h3 class="heading settled" data-level="10.89" id="shrexact"><span class="secno">10.89. </span><span class="content">@shrExact</span><a class="self-link" href="#shrexact"></a></h3>
+   <h3 class="heading settled" data-level="10.90" id="shuffle"><span class="secno">10.90. </span><span class="content">@shuffle</span><a class="self-link" href="#shuffle"></a></h3>
+   <h3 class="heading settled" data-level="10.91" id="sin"><span class="secno">10.91. </span><span class="content">@sin</span><a class="self-link" href="#sin"></a></h3>
+   <h3 class="heading settled" data-level="10.92" id="sizeof"><span class="secno">10.92. </span><span class="content">@sizeOf</span><a class="self-link" href="#sizeof"></a></h3>
+   <h3 class="heading settled" data-level="10.93" id="splat"><span class="secno">10.93. </span><span class="content">@splat</span><a class="self-link" href="#splat"></a></h3>
+   <h3 class="heading settled" data-level="10.94" id="sqrt"><span class="secno">10.94. </span><span class="content">@sqrt</span><a class="self-link" href="#sqrt"></a></h3>
+   <h3 class="heading settled" data-level="10.95" id="src"><span class="secno">10.95. </span><span class="content">@src</span><a class="self-link" href="#src"></a></h3>
+   <h3 class="heading settled" data-level="10.96" id="subwithoverflow"><span class="secno">10.96. </span><span class="content">@subWithOverflow</span><a class="self-link" href="#subwithoverflow"></a></h3>
+   <h3 class="heading settled" data-level="10.97" id="tagname"><span class="secno">10.97. </span><span class="content">@tagName</span><a class="self-link" href="#tagname"></a></h3>
+   <h3 class="heading settled" data-level="10.98" id="tan"><span class="secno">10.98. </span><span class="content">@tan</span><a class="self-link" href="#tan"></a></h3>
+   <h3 class="heading settled" data-level="10.99" id="this"><span class="secno">10.99. </span><span class="content">@This</span><a class="self-link" href="#this"></a></h3>
+   <h3 class="heading settled" data-level="10.100" id="trunc"><span class="secno">10.100. </span><span class="content">@trunc</span><a class="self-link" href="#trunc"></a></h3>
+   <h3 class="heading settled" data-level="10.101" id="truncate"><span class="secno">10.101. </span><span class="content">@truncate</span><a class="self-link" href="#truncate"></a></h3>
+   <h3 class="heading settled" data-level="10.102" id="type"><span class="secno">10.102. </span><span class="content">@Type</span><a class="self-link" href="#type"></a></h3>
+   <h3 class="heading settled" data-level="10.103" id="typeinfo"><span class="secno">10.103. </span><span class="content">@typeInfo</span><a class="self-link" href="#typeinfo"></a></h3>
+   <h3 class="heading settled" data-level="10.104" id="typename"><span class="secno">10.104. </span><span class="content">@typeName</span><a class="self-link" href="#typename"></a></h3>
+   <h3 class="heading settled" data-level="10.105" id="typeof"><span class="secno">10.105. </span><span class="content">@TypeOf</span><a class="self-link" href="#typeof"></a></h3>
+   <h3 class="heading settled" data-level="10.106" id="unioninit"><span class="secno">10.106. </span><span class="content">@unionInit</span><a class="self-link" href="#unioninit"></a></h3>
+   <h3 class="heading settled" data-level="10.107" id="vector"><span class="secno">10.107. </span><span class="content">@Vector</span><a class="self-link" href="#vector"></a></h3>
+   <h3 class="heading settled" data-level="10.108" id="wasmmemorygrow"><span class="secno">10.108. </span><span class="content">@wasmMemoryGrow</span><a class="self-link" href="#wasmmemorygrow"></a></h3>
+   <h3 class="heading settled" data-level="10.109" id="wasmmemorysize"><span class="secno">10.109. </span><span class="content">@wasmMemorySize</span><a class="self-link" href="#wasmmemorysize"></a></h3>
   </main>
 <script>
 (function() {

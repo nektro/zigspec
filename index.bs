@@ -64,3 +64,10 @@ Zig is a general-purpose programming language and toolchain for maintaining robu
 :: The same code works in many environments which have different constraints.
 : **Maintainable**
 :: Precisely communicate intent to the compiler and other programmers. The language imposes a low overhead to reading code and is resilient to changing requirements and environments. 
+
+<pre class=include>path: docs/source.md</pre>
+<pre class=include>path: docs/grammar.md</pre>
+<pre class=include>path: docs/types.md</pre>
+<pre class=include>path: docs/expressions.md</pre>
+<pre class=include>path: docs/statements.md</pre>
+<pre class=include>path: docs/compiler-builtins.md</pre>
