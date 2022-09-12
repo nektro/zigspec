@@ -11,6 +11,7 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
+      - run: mkdir public
 
       - name: Output to HTML
         uses: netwerk-digitaal-erfgoed/bikeshed-action@v1
