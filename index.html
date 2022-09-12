@@ -1689,6 +1689,47 @@ figcaption {
 figcaption:not(.no-marker)::before {
     content: "Figure " counter(figure) " ";
 }</style>
+<style>/* style-dfn-panel */
+
+:root {
+    --dfnpanel-bg: #ddd;
+    --dfnpanel-text: var(--text);
+}
+.dfn-panel {
+    position: absolute;
+    z-index: 35;
+    height: auto;
+    width: -webkit-fit-content;
+    width: fit-content;
+    max-width: 300px;
+    max-height: 500px;
+    overflow: auto;
+    padding: 0.5em 0.75em;
+    font: small Helvetica Neue, sans-serif, Droid Sans Fallback;
+    background: var(--dfnpanel-bg);
+    color: var(--dfnpanel-text);
+    border: outset 0.2em;
+}
+.dfn-panel:not(.on) { display: none; }
+.dfn-panel * { margin: 0; padding: 0; text-indent: 0; }
+.dfn-panel > b { display: block; }
+.dfn-panel a { color: var(--dfnpanel-text); }
+.dfn-panel a:not(:hover) { text-decoration: none !important; border-bottom: none !important; }
+.dfn-panel > b + b { margin-top: 0.25em; }
+.dfn-panel ul { padding: 0; }
+.dfn-panel li { list-style: inside; }
+.dfn-panel.activated {
+    display: inline-block;
+    position: fixed;
+    left: .5em;
+    bottom: 2em;
+    margin: 0 auto;
+    max-width: calc(100vw - 1.5em - .4em - .5em);
+    max-height: 30vh;
+}
+
+.dfn-paneled { cursor: pointer; }
+</style>
 <style>/* style-issues */
 
 a[href].issue-return {
@@ -1709,6 +1750,37 @@ a[href].issue-return {
 [data-md] > :last-child {
     margin-bottom: 0;
 }</style>
+<style>/* style-railroad */
+
+    :root {
+        --railroad-bg: hsl(30, 20%, 95%);
+        --railroad-stroke: black;
+        --railroad-fill: hsl(120,100%,90%);
+    }
+    svg.railroad-diagram {
+        background-color: var(--railroad-bg);
+    }
+    svg.railroad-diagram path {
+        stroke-width:3px;
+        stroke: var(--railroad-stroke);
+        fill:transparent;
+    }
+    svg.railroad-diagram text {
+        font: bold 14px monospace;
+        fill: var(--text, currentcolor);
+        text-anchor:middle;
+    }
+    svg.railroad-diagram text.label {
+        text-anchor:start;
+    }
+    svg.railroad-diagram text.comment {
+        font:italic 12px monospace;
+    }
+    svg.railroad-diagram rect {
+        stroke-width:3px;
+        stroke: var(--railroad-stroke);
+        fill: var(--railroad-fill);
+    }</style>
 <style>/* style-selflinks */
 
 :root {
@@ -1881,7 +1953,35 @@ dfn > a.self-link::before      { content: "#"; }
         --selflink-hover-text: white;
     }
 }
-</style>
+
+    @media (prefers-color-scheme: dark) {
+        :root {
+            --railroad-bg: rgba(255, 255, 255, .05);
+            --railroad-stroke: #bbb;
+            --railroad-fill: hsla(240deg, 20%, 15%);
+        }
+    }
+    @media (prefers-color-scheme: dark) {
+        :root {
+            --railroad-bg: rgba(255, 255, 255, .05);
+            --railroad-stroke: #bbb;
+            --railroad-fill: hsla(240deg, 20%, 15%);
+        }
+    }
+    @media (prefers-color-scheme: dark) {
+        :root {
+            --railroad-bg: rgba(255, 255, 255, .05);
+            --railroad-stroke: #bbb;
+            --railroad-fill: hsla(240deg, 20%, 15%);
+        }
+    }
+    @media (prefers-color-scheme: dark) {
+        :root {
+            --railroad-bg: rgba(255, 255, 255, .05);
+            --railroad-stroke: #bbb;
+            --railroad-fill: hsla(240deg, 20%, 15%);
+        }
+    }</style>
  <body class="h-entry">
   <div class="head">
    <p data-fill-with="logo"></p>
@@ -2027,6 +2127,85 @@ dfn > a.self-link::before      { content: "#"; }
      <p>Precisely communicate intent to the compiler and other programmers. The language imposes a low overhead to reading code and is resilient to changing requirements and environments.</p>
    </dl>
    <h2 class="heading settled" data-level="6" id="source-text"><span class="secno">6. </span><span class="content">Source Text</span><a class="self-link" href="#source-text"></a></h2>
+   <dl>
+    <dt data-md><dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport id="sourcecharacter">SourceCharacter</dfn>
+    <dd data-md>
+     <div class="railroad">
+      <svg class="railroad-diagram" height="62" viewBox="0 0 296 62" width="296">
+       <g transform="translate(.5 .5)">
+        <path d="M 20 21 v 20 m 10 -20 v 20 m -10 -10 h 20.5"></path>
+        <path d="M40 31h10"></path>
+        <g class="terminal">
+         <path d="M50 31h0"></path>
+         <path d="M246 31h0"></path>
+         <rect height="22" rx="10" ry="10" width="196" x="50" y="20"></rect>
+         <text x="148" y="35">any Unicode code point</text>
+        </g>
+        <path d="M246 31h10"></path>
+        <path d="M 256 31 h 20 m -10 -10 v 20 m 10 -20 v 20"></path>
+       </g>
+      </svg>
+     </div>
+   </dl>
+   <p>Zig source text is a sequence of Unicode code points. All Unicode code point values from U+0000 to U+10FFFF, including surrogate code points, may occur in Zig source text where permitted by the grammar. Files storing Zig source text are <a data-link-type="biblio" href="#biblio-utf-8">[UTF-8]</a> encoded text files. The files storing Zig source code are usually named with the <code>.zig</code> extension.</p>
+   <p>The components of a combining character sequence are treated as individual Unicode code points even though a user might think of the whole sequence as a single character.</p>
+   <dl>
+    <dt data-md><dfn data-dfn-type="dfn" data-noexport id="nl">NL<a class="self-link" href="#nl"></a></dfn>
+    <dd data-md>
+     <div class="railroad">
+      <svg class="railroad-diagram" height="62" viewBox="0 0 480 62" width="480">
+       <g transform="translate(.5 .5)">
+        <path d="M 20 21 v 20 m 10 -20 v 20 m -10 -10 h 20.5"></path>
+        <path d="M40 31h10"></path>
+        <g class="terminal">
+         <path d="M50 31h0"></path>
+         <path d="M430 31h0"></path>
+         <rect height="22" rx="10" ry="10" width="380" x="50" y="20"></rect>
+         <text x="240" y="35"><a data-link-type="dfn" href="#sourcecharacter" id="ref-for-sourcecharacter">SourceCharacter</a> 'LINE FEED (LF)' (U+000A)</text>
+        </g>
+        <path d="M430 31h10"></path>
+        <path d="M 440 31 h 20 m -10 -10 v 20 m 10 -20 v 20"></path>
+       </g>
+      </svg>
+     </div>
+    <dt data-md><dfn data-dfn-type="dfn" data-noexport id="cr">CR<a class="self-link" href="#cr"></a></dfn>
+    <dd data-md>
+     <div class="railroad">
+      <svg class="railroad-diagram" height="62" viewBox="0 0 528 62" width="528">
+       <g transform="translate(.5 .5)">
+        <path d="M 20 21 v 20 m 10 -20 v 20 m -10 -10 h 20.5"></path>
+        <path d="M40 31h10"></path>
+        <g class="terminal">
+         <path d="M50 31h0"></path>
+         <path d="M478 31h0"></path>
+         <rect height="22" rx="10" ry="10" width="428" x="50" y="20"></rect>
+         <text x="264" y="35"><a data-link-type="dfn" href="#sourcecharacter" id="ref-for-sourcecharacter①">SourceCharacter</a> 'CARRIAGE RETURN (CR)' (U+000D)</text>
+        </g>
+        <path d="M478 31h10"></path>
+        <path d="M 488 31 h 20 m -10 -10 v 20 m 10 -20 v 20"></path>
+       </g>
+      </svg>
+     </div>
+    <dt data-md><dfn data-dfn-type="dfn" data-noexport id="tab">TAB<a class="self-link" href="#tab"></a></dfn>
+    <dd data-md>
+     <div class="railroad">
+      <svg class="railroad-diagram" height="62" viewBox="0 0 528 62" width="528">
+       <g transform="translate(.5 .5)">
+        <path d="M 20 21 v 20 m 10 -20 v 20 m -10 -10 h 20.5"></path>
+        <path d="M40 31h10"></path>
+        <g class="terminal">
+         <path d="M50 31h0"></path>
+         <path d="M478 31h0"></path>
+         <rect height="22" rx="10" ry="10" width="428" x="50" y="20"></rect>
+         <text x="264" y="35"><a data-link-type="dfn" href="#sourcecharacter" id="ref-for-sourcecharacter②">SourceCharacter</a> 'CHARACTER TABULATION' (U+0009)</text>
+        </g>
+        <path d="M478 31h10"></path>
+        <path d="M 488 31 h 20 m -10 -10 v 20 m 10 -20 v 20"></path>
+       </g>
+      </svg>
+     </div>
+   </dl>
+   <p class="issue" id="issue-310f3cea"><a class="self-link" href="#issue-310f3cea"></a> further discussion here. <a href="https://github.com/ziglang/zig-spec/issues/38">[Issue #ziglang/zig-spec#38]</a></p>
    <h2 class="heading settled" data-level="7" id="lexical-grammar"><span class="secno">7. </span><span class="content">Lexical Grammar</span><a class="self-link" href="#lexical-grammar"></a></h2>
    <h3 class="heading settled" data-level="7.1" id="white-space"><span class="secno">7.1. </span><span class="content">White Space</span><a class="self-link" href="#white-space"></a></h3>
    <h3 class="heading settled" data-level="7.2" id="line-terminators"><span class="secno">7.2. </span><span class="content">Line Terminators</span><a class="self-link" href="#line-terminators"></a></h3>
@@ -2430,4 +2609,68 @@ dfn > a.self-link::before      { content: "#"; }
    <dd>S. Bradner. <a href="https://datatracker.ietf.org/doc/html/rfc2119"><cite>Key words for use in RFCs to Indicate Requirement Levels</cite></a>. March 1997. Best Current Practice. URL: <a href="https://datatracker.ietf.org/doc/html/rfc2119">https://datatracker.ietf.org/doc/html/rfc2119</a>
    <dt id="biblio-unicode">[Unicode]
    <dd><a href="https://www.unicode.org/versions/latest/"><cite>The Unicode Standard</cite></a>. URL: <a href="https://www.unicode.org/versions/latest/">https://www.unicode.org/versions/latest/</a>
+   <dt id="biblio-utf-8">[UTF-8]
+   <dd>F. Yergeau. <a href="https://www.rfc-editor.org/rfc/rfc3629"><cite>UTF-8, a transformation format of ISO 10646</cite></a>. November 2003. Internet Standard. URL: <a href="https://www.rfc-editor.org/rfc/rfc3629">https://www.rfc-editor.org/rfc/rfc3629</a>
   </dl>
+  <aside class="dfn-panel" data-for="sourcecharacter">
+   <b><a href="#sourcecharacter">#sourcecharacter</a></b><b>Referenced in:</b>
+   <ul>
+    <li><a href="#ref-for-sourcecharacter">6. Source Text</a> <a href="#ref-for-sourcecharacter①">(2)</a> <a href="#ref-for-sourcecharacter②">(3)</a>
+   </ul>
+  </aside>
+<script>/* script-dfn-panel */
+
+document.body.addEventListener("click", function(e) {
+    var queryAll = function(sel) { return [].slice.call(document.querySelectorAll(sel)); }
+    // Find the dfn element or panel, if any, that was clicked on.
+    var el = e.target;
+    var target;
+    var hitALink = false;
+    while(el.parentElement) {
+        if(el.tagName == "A") {
+            // Clicking on a link in a <dfn> shouldn't summon the panel
+            hitALink = true;
+        }
+        if(el.classList.contains("dfn-paneled")) {
+            target = "dfn";
+            break;
+        }
+        if(el.classList.contains("dfn-panel")) {
+            target = "dfn-panel";
+            break;
+        }
+        el = el.parentElement;
+    }
+    if(target != "dfn-panel") {
+        // Turn off any currently "on" or "activated" panels.
+        queryAll(".dfn-panel.on, .dfn-panel.activated").forEach(function(el){
+            el.classList.remove("on");
+            el.classList.remove("activated");
+        });
+    }
+    if(target == "dfn" && !hitALink) {
+        // open the panel
+        var dfnPanel = document.querySelector(".dfn-panel[data-for='" + el.id + "']");
+        if(dfnPanel) {
+            dfnPanel.classList.add("on");
+            var rect = el.getBoundingClientRect();
+            dfnPanel.style.left = window.scrollX + rect.right + 5 + "px";
+            dfnPanel.style.top = window.scrollY + rect.top + "px";
+            var panelRect = dfnPanel.getBoundingClientRect();
+            var panelWidth = panelRect.right - panelRect.left;
+            if(panelRect.right > document.body.scrollWidth && (rect.left - (panelWidth + 5)) > 0) {
+                // Reposition, because the panel is overflowing
+                dfnPanel.style.left = window.scrollX + rect.left - (panelWidth + 5) + "px";
+            }
+        } else {
+            console.log("Couldn't find .dfn-panel[data-for='" + el.id + "']");
+        }
+    } else if(target == "dfn-panel") {
+        // Switch it to "activated" state, which pins it.
+        el.classList.add("activated");
+        el.style.left = null;
+        el.style.top = null;
+    }
+
+});
+</script>
