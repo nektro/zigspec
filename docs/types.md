@@ -6,7 +6,7 @@ Within this specification, the notation "Type(*x*)" is used as shorthand for "*t
 
 ## The AnyFrame Type
 
-## The Array Types
+## The Array Type
 
 ## The Bool Type
 
@@ -14,40 +14,40 @@ Within this specification, the notation "Type(*x*)" is used as shorthand for "*t
 
 ## The ComptimeInt Type
 
-## The Enum Types
+## The Enum Type
 
 ## The EnumLiteral Type
 
-## The ErrorSet Types
+## The ErrorSet Type
 
-## The ErrorUnion Types
+## The ErrorUnion Type
 
-## The Float Types
+## The Float Type
 
-## The Fn Types
+## The Fn Type
 
-## The Frame Types
+## The Frame Type
 
-## The Int Types
+## The Int Type
 
 ## The NoReturn Type
 
 ## The Null Type
 
-## The Opaque Types
+## The Opaque Type
 
-## The Optional Types
+## The Optional Type
 
-## The Pointer Types
+## The Pointer Type
 
-## The Struct Types
+## The Struct Type
 
 ## The Type Type
 
 ## The Undefined Type
 
-## The Union Types
+## The Union Type
 
-## The Vector Types
+## The Vector Type
 
 ## The Void Type
