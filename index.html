@@ -1223,7 +1223,7 @@ Possible extra rowspan handling
 </style>
   <meta content="Bikeshed version 5f7b0e20, updated Tue Aug 18 15:46:28 2020 -0700" name="generator">
   <link href="https://nektro.github.io/zigspec/" rel="canonical">
-  <meta content="0196facebc628f44d52118b1cb89ab002328eda7" name="document-revision">
+  <meta content="d702c3c91e4491f3fb8bfcbf385d8f3460ee2cf8" name="document-revision">
 <style>/* style-autolinks */
 
 .css.css, .property.property, .descriptor.descriptor {
@@ -1447,42 +1447,50 @@ dfn > a.self-link::before      { content: "#"; }</style>
       <li><a href="#tokens"><span class="secno">7.4</span> <span class="content">Tokens</span></a>
       <li><a href="#identifiers"><span class="secno">7.5</span> <span class="content">Identifiers</span></a>
       <li><a href="#keywords"><span class="secno">7.6</span> <span class="content">Keywords</span></a>
-      <li><a href="#literals"><span class="secno">7.7</span> <span class="content">Literals</span></a>
-      <li><a href="#operators"><span class="secno">7.8</span> <span class="content">Operators</span></a>
+      <li><a href="#operators"><span class="secno">7.7</span> <span class="content">Operators</span></a>
      </ol>
     <li>
      <a href="#data-types-and-values"><span class="secno">8</span> <span class="content">Data Types and Values</span></a>
      <ol class="toc">
       <li><a href="#the-anyframe-type"><span class="secno">8.1</span> <span class="content">The AnyFrame Type</span></a>
-      <li><a href="#the-array-types"><span class="secno">8.2</span> <span class="content">The Array Types</span></a>
+      <li><a href="#the-array-type"><span class="secno">8.2</span> <span class="content">The Array Type</span></a>
       <li><a href="#the-bool-type"><span class="secno">8.3</span> <span class="content">The Bool Type</span></a>
       <li><a href="#the-comptimefloat-type"><span class="secno">8.4</span> <span class="content">The ComptimeFloat Type</span></a>
       <li><a href="#the-comptimeint-type"><span class="secno">8.5</span> <span class="content">The ComptimeInt Type</span></a>
-      <li><a href="#the-enum-types"><span class="secno">8.6</span> <span class="content">The Enum Types</span></a>
+      <li><a href="#the-enum-type"><span class="secno">8.6</span> <span class="content">The Enum Type</span></a>
       <li><a href="#the-enumliteral-type"><span class="secno">8.7</span> <span class="content">The EnumLiteral Type</span></a>
-      <li><a href="#the-errorset-types"><span class="secno">8.8</span> <span class="content">The ErrorSet Types</span></a>
-      <li><a href="#the-errorunion-types"><span class="secno">8.9</span> <span class="content">The ErrorUnion Types</span></a>
-      <li><a href="#the-float-types"><span class="secno">8.10</span> <span class="content">The Float Types</span></a>
-      <li><a href="#the-fn-types"><span class="secno">8.11</span> <span class="content">The Fn Types</span></a>
-      <li><a href="#the-frame-types"><span class="secno">8.12</span> <span class="content">The Frame Types</span></a>
-      <li><a href="#the-int-types"><span class="secno">8.13</span> <span class="content">The Int Types</span></a>
+      <li><a href="#the-errorset-type"><span class="secno">8.8</span> <span class="content">The ErrorSet Type</span></a>
+      <li><a href="#the-errorunion-type"><span class="secno">8.9</span> <span class="content">The ErrorUnion Type</span></a>
+      <li><a href="#the-float-type"><span class="secno">8.10</span> <span class="content">The Float Type</span></a>
+      <li><a href="#the-fn-type"><span class="secno">8.11</span> <span class="content">The Fn Type</span></a>
+      <li><a href="#the-frame-type"><span class="secno">8.12</span> <span class="content">The Frame Type</span></a>
+      <li><a href="#the-int-type"><span class="secno">8.13</span> <span class="content">The Int Type</span></a>
       <li><a href="#the-noreturn-type"><span class="secno">8.14</span> <span class="content">The NoReturn Type</span></a>
       <li><a href="#the-null-type"><span class="secno">8.15</span> <span class="content">The Null Type</span></a>
-      <li><a href="#the-opaque-types"><span class="secno">8.16</span> <span class="content">The Opaque Types</span></a>
-      <li><a href="#the-optional-types"><span class="secno">8.17</span> <span class="content">The Optional Types</span></a>
-      <li><a href="#the-pointer-types"><span class="secno">8.18</span> <span class="content">The Pointer Types</span></a>
-      <li><a href="#the-struct-types"><span class="secno">8.19</span> <span class="content">The Struct Types</span></a>
+      <li><a href="#the-opaque-type"><span class="secno">8.16</span> <span class="content">The Opaque Type</span></a>
+      <li><a href="#the-optional-type"><span class="secno">8.17</span> <span class="content">The Optional Type</span></a>
+      <li><a href="#the-pointer-type"><span class="secno">8.18</span> <span class="content">The Pointer Type</span></a>
+      <li><a href="#the-struct-type"><span class="secno">8.19</span> <span class="content">The Struct Type</span></a>
       <li><a href="#the-type-type"><span class="secno">8.20</span> <span class="content">The Type Type</span></a>
       <li><a href="#the-undefined-type"><span class="secno">8.21</span> <span class="content">The Undefined Type</span></a>
-      <li><a href="#the-union-types"><span class="secno">8.22</span> <span class="content">The Union Types</span></a>
-      <li><a href="#the-vector-types"><span class="secno">8.23</span> <span class="content">The Vector Types</span></a>
+      <li><a href="#the-union-type"><span class="secno">8.22</span> <span class="content">The Union Type</span></a>
+      <li><a href="#the-vector-type"><span class="secno">8.23</span> <span class="content">The Vector Type</span></a>
       <li><a href="#the-void-type"><span class="secno">8.24</span> <span class="content">The Void Type</span></a>
      </ol>
     <li><a href="#expressions"><span class="secno">9</span> <span class="content">Expressions</span></a>
     <li><a href="#statements-and-declarations"><span class="secno">10</span> <span class="content">Statements and Declarations</span></a>
     <li><a href="#compiler-builtins"><span class="secno">11</span> <span class="content">Compiler Builtins</span></a>
     <li><a href="#the-std-package"><span class="secno">12</span> <span class="content">The <code>std</code> Package</span></a>
-    <li><a href="#the-builtin-package"><span class="secno">13</span> <span class="content">The <code>builtin</code> Package</span></a>
+    <li>
+     <a href="#the-builtin-package"><span class="secno">13</span> <span class="content">The <code>builtin</code> Package</span></a>
+     <ol class="toc">
+      <li><a href="#compiler-information"><span class="secno">13.1</span> <span class="content">Compiler information</span></a>
+      <li><a href="#compilation-information"><span class="secno">13.2</span> <span class="content">Compilation information</span></a>
+     </ol>
+    <li><a href="#the-root-package"><span class="secno">14</span> <span class="content">The <code>root</code> Package</span></a>
+    <li><a href="#undefined-behavior"><span class="secno">15</span> <span class="content">Undefined Behavior</span></a>
+    <li><a href="#comptime①"><span class="secno">16</span> <span class="content">Comptime</span></a>
+    <li><a href="#c-interoperability"><span class="secno">17</span> <span class="content">C Interoperability</span></a>
     <li>
      <a href="#references"><span class="secno"></span> <span class="content">References</span></a>
      <ol class="toc">
@@ -1493,7 +1501,7 @@ dfn > a.self-link::before      { content: "#"; }</style>
   </nav>
   <main>
    <h2 class="heading settled" data-level="1" id="introduction"><span class="secno">1. </span><span class="content">Introduction</span><a class="self-link" href="#introduction"></a></h2>
-   <p>This standard defines the Zig 2022-09-12 Language. It is a Living Document and kept up to date on a best-effort basis with the latest master releases of <a href="https://github.com/ziglang/zig">https://github.com/ziglang/zig</a> and provided as-is. As Zig is a pre-1.0 language, any information is capable of changing as new proposals are accepted and implemented. The core parts of the language are fairly stable and likely to remain unchanged going forward but all discretion is up to the Zig Core Team.</p>
+   <p>This standard defines the Zig 2022-09-12 Language. It is a Living Document and kept up to date on a best-effort basis with the latest master releases of <a href="https://github.com/ziglang/zig">github.com/ziglang/zig</a> and provided as-is. As Zig is a pre-1.0 language, any information is capable of changing as new proposals are accepted and implemented. The core parts of the language are fairly stable and likely to remain unchanged going forward but all discretion is up to the Zig Core Team.</p>
    <p>TODO more history information</p>
    <p><a href="https://about.sourcegraph.com/podcast/andrew-kelley">https://about.sourcegraph.com/podcast/andrew-kelley</a> has a lot of early days details</p>
    <p><a href="https://ziglang.org/download/0.1.1/release-notes.html">0.1.1 released on 2017-10-17</a></p>
@@ -1967,267 +1975,310 @@ dfn > a.self-link::before      { content: "#"; }</style>
      </div>
    </dl>
    <h3 class="heading settled" data-level="7.4" id="tokens"><span class="secno">7.4. </span><span class="content">Tokens</span><a class="self-link" href="#tokens"></a></h3>
+   <p class="note" role="note"><span>Note:</span> Defined by <code>std.zig.Token.Tag</code> in <a href="https://github.com/ziglang/zig/blob/master/lib/std/zig/tokenizer.zig">/lib/std/zig/tokenizer.zig</a> Could be interpreted by other code. Railroad diagrams for complex code in <a href="#expressions">§ 9 Expressions</a>.</p>
+   <p class="note" role="note"><span>Note:</span> TODO how should this section be expanded?</p>
    <h3 class="heading settled" data-level="7.5" id="identifiers"><span class="secno">7.5. </span><span class="content">Identifiers</span><a class="self-link" href="#identifiers"></a></h3>
+   <p>TODO digit definitions in type.md literal sections</p>
+<pre>IDENTIFIER
+    &lt;- !keyword [A-Za-z_] [A-Za-z0-9_]* skip
+     / "@\"" string_char* "\""                            skip
+</pre>
    <h3 class="heading settled" data-level="7.6" id="keywords"><span class="secno">7.6. </span><span class="content">Keywords</span><a class="self-link" href="#keywords"></a></h3>
-   <h3 class="heading settled" data-level="7.7" id="literals"><span class="secno">7.7. </span><span class="content">Literals</span><a class="self-link" href="#literals"></a></h3>
-   <h3 class="heading settled" data-level="7.8" id="operators"><span class="secno">7.8. </span><span class="content">Operators</span><a class="self-link" href="#operators"></a></h3>
+   <dl>
+    <dt data-md><dfn data-dfn-type="dfn" data-noexport id="align">align<a class="self-link" href="#align"></a></dfn>
+    <dt data-md><dfn data-dfn-type="dfn" data-noexport id="allowzero">allowzero<a class="self-link" href="#allowzero"></a></dfn>
+    <dt data-md><dfn data-dfn-type="dfn" data-noexport id="and">and<a class="self-link" href="#and"></a></dfn>
+    <dt data-md><dfn data-dfn-type="dfn" data-noexport id="anyframe">anyframe<a class="self-link" href="#anyframe"></a></dfn>
+    <dt data-md><dfn data-dfn-type="dfn" data-noexport id="anytype">anytype<a class="self-link" href="#anytype"></a></dfn>
+    <dt data-md><dfn data-dfn-type="dfn" data-noexport id="asm">asm<a class="self-link" href="#asm"></a></dfn>
+    <dt data-md><dfn data-dfn-type="dfn" data-noexport id="async">async<a class="self-link" href="#async"></a></dfn>
+    <dt data-md><dfn data-dfn-type="dfn" data-noexport id="await">await<a class="self-link" href="#await"></a></dfn>
+    <dt data-md><dfn data-dfn-type="dfn" data-noexport id="break">break<a class="self-link" href="#break"></a></dfn>
+    <dt data-md><dfn data-dfn-type="dfn" data-noexport id="catch">catch<a class="self-link" href="#catch"></a></dfn>
+    <dt data-md><dfn data-dfn-type="dfn" data-noexport id="comptime">comptime<a class="self-link" href="#comptime"></a></dfn>
+    <dt data-md><dfn data-dfn-type="dfn" data-noexport id="const">const<a class="self-link" href="#const"></a></dfn>
+    <dt data-md><dfn data-dfn-type="dfn" data-noexport id="continue">continue<a class="self-link" href="#continue"></a></dfn>
+    <dt data-md><dfn data-dfn-type="dfn" data-noexport id="defer">defer<a class="self-link" href="#defer"></a></dfn>
+    <dt data-md><dfn data-dfn-type="dfn" data-noexport id="else">else<a class="self-link" href="#else"></a></dfn>
+    <dt data-md><dfn data-dfn-type="dfn" data-noexport id="enum">enum<a class="self-link" href="#enum"></a></dfn>
+    <dt data-md><dfn data-dfn-type="dfn" data-noexport id="errdefer">errdefer<a class="self-link" href="#errdefer"></a></dfn>
+    <dt data-md><dfn data-dfn-type="dfn" data-noexport id="error">error<a class="self-link" href="#error"></a></dfn>
+    <dt data-md><dfn data-dfn-type="dfn" data-noexport id="export">export<a class="self-link" href="#export"></a></dfn>
+    <dt data-md><dfn data-dfn-type="dfn" data-noexport id="extern">extern<a class="self-link" href="#extern"></a></dfn>
+    <dt data-md><dfn data-dfn-type="dfn" data-noexport id="fn">fn<a class="self-link" href="#fn"></a></dfn>
+    <dt data-md><dfn data-dfn-type="dfn" data-noexport id="for">for<a class="self-link" href="#for"></a></dfn>
+    <dt data-md><dfn data-dfn-type="dfn" data-noexport id="if">if<a class="self-link" href="#if"></a></dfn>
+    <dt data-md><dfn data-dfn-type="dfn" data-noexport id="inline">inline<a class="self-link" href="#inline"></a></dfn>
+    <dt data-md><dfn data-dfn-type="dfn" data-noexport id="noalias">noalias<a class="self-link" href="#noalias"></a></dfn>
+    <dt data-md><dfn data-dfn-type="dfn" data-noexport id="nosuspend">nosuspend<a class="self-link" href="#nosuspend"></a></dfn>
+    <dt data-md><dfn data-dfn-type="dfn" data-noexport id="or">or<a class="self-link" href="#or"></a></dfn>
+    <dt data-md><dfn data-dfn-type="dfn" data-noexport id="orelse">orelse<a class="self-link" href="#orelse"></a></dfn>
+    <dt data-md><dfn data-dfn-type="dfn" data-noexport id="packed">packed<a class="self-link" href="#packed"></a></dfn>
+    <dt data-md><dfn data-dfn-type="dfn" data-noexport id="pub">pub<a class="self-link" href="#pub"></a></dfn>
+    <dt data-md><dfn data-dfn-type="dfn" data-noexport id="resume">resume<a class="self-link" href="#resume"></a></dfn>
+    <dt data-md><dfn data-dfn-type="dfn" data-noexport id="return">return<a class="self-link" href="#return"></a></dfn>
+    <dt data-md><dfn data-dfn-type="dfn" data-noexport id="linksection">linksection<a class="self-link" href="#linksection"></a></dfn>
+    <dt data-md><dfn data-dfn-type="dfn" data-noexport id="struct">struct<a class="self-link" href="#struct"></a></dfn>
+    <dt data-md><dfn data-dfn-type="dfn" data-noexport id="suspend">suspend<a class="self-link" href="#suspend"></a></dfn>
+    <dt data-md><dfn data-dfn-type="dfn" data-noexport id="switch">switch<a class="self-link" href="#switch"></a></dfn>
+    <dt data-md><dfn data-dfn-type="dfn" data-noexport id="test">test<a class="self-link" href="#test"></a></dfn>
+    <dt data-md><dfn data-dfn-type="dfn" data-noexport id="threadlocal">threadlocal<a class="self-link" href="#threadlocal"></a></dfn>
+    <dt data-md><dfn data-dfn-type="dfn" data-noexport id="try">try<a class="self-link" href="#try"></a></dfn>
+    <dt data-md><dfn data-dfn-type="dfn" data-noexport id="union">union<a class="self-link" href="#union"></a></dfn>
+    <dt data-md><dfn data-dfn-type="dfn" data-noexport id="unreachable">unreachable<a class="self-link" href="#unreachable"></a></dfn>
+    <dt data-md><dfn data-dfn-type="dfn" data-noexport id="usingnamespace">usingnamespace<a class="self-link" href="#usingnamespace"></a></dfn>
+    <dt data-md><dfn data-dfn-type="dfn" data-noexport id="var">var<a class="self-link" href="#var"></a></dfn>
+    <dt data-md><dfn data-dfn-type="dfn" data-noexport id="volatile">volatile<a class="self-link" href="#volatile"></a></dfn>
+    <dt data-md><dfn data-dfn-type="dfn" data-noexport id="while">while<a class="self-link" href="#while"></a></dfn>
+   </dl>
+   <h3 class="heading settled" data-level="7.7" id="operators"><span class="secno">7.7. </span><span class="content">Operators</span><a class="self-link" href="#operators"></a></h3>
+   <p>filter out of <code>std.zig.Token.Tag</code></p>
+   <p>use table like https://ziglang.org/documentation/master/#Operators</p>
    <h2 class="heading settled" data-level="8" id="data-types-and-values"><span class="secno">8. </span><span class="content">Data Types and Values</span><a class="self-link" href="#data-types-and-values"></a></h2>
    <p>Algorithms within this specification manipulate values each of which has an associated type. The possible value types are exactly those defined in this clause.</p>
    <p>Within this specification, the notation "Type(<em>x</em>)" is used as shorthand for "<em>the type of x</em>" where "type" refers to the Zig language and specification types defined in this clause.</p>
+   <p>TODO include literal definitions in this section</p>
    <h3 class="heading settled" data-level="8.1" id="the-anyframe-type"><span class="secno">8.1. </span><span class="content">The AnyFrame Type</span><a class="self-link" href="#the-anyframe-type"></a></h3>
-   <h3 class="heading settled" data-level="8.2" id="the-array-types"><span class="secno">8.2. </span><span class="content">The Array Types</span><a class="self-link" href="#the-array-types"></a></h3>
+   <h3 class="heading settled" data-level="8.2" id="the-array-type"><span class="secno">8.2. </span><span class="content">The Array Type</span><a class="self-link" href="#the-array-type"></a></h3>
    <h3 class="heading settled" data-level="8.3" id="the-bool-type"><span class="secno">8.3. </span><span class="content">The Bool Type</span><a class="self-link" href="#the-bool-type"></a></h3>
    <h3 class="heading settled" data-level="8.4" id="the-comptimefloat-type"><span class="secno">8.4. </span><span class="content">The ComptimeFloat Type</span><a class="self-link" href="#the-comptimefloat-type"></a></h3>
    <h3 class="heading settled" data-level="8.5" id="the-comptimeint-type"><span class="secno">8.5. </span><span class="content">The ComptimeInt Type</span><a class="self-link" href="#the-comptimeint-type"></a></h3>
-   <h3 class="heading settled" data-level="8.6" id="the-enum-types"><span class="secno">8.6. </span><span class="content">The Enum Types</span><a class="self-link" href="#the-enum-types"></a></h3>
+   <h3 class="heading settled" data-level="8.6" id="the-enum-type"><span class="secno">8.6. </span><span class="content">The Enum Type</span><a class="self-link" href="#the-enum-type"></a></h3>
    <h3 class="heading settled" data-level="8.7" id="the-enumliteral-type"><span class="secno">8.7. </span><span class="content">The EnumLiteral Type</span><a class="self-link" href="#the-enumliteral-type"></a></h3>
-   <h3 class="heading settled" data-level="8.8" id="the-errorset-types"><span class="secno">8.8. </span><span class="content">The ErrorSet Types</span><a class="self-link" href="#the-errorset-types"></a></h3>
-   <h3 class="heading settled" data-level="8.9" id="the-errorunion-types"><span class="secno">8.9. </span><span class="content">The ErrorUnion Types</span><a class="self-link" href="#the-errorunion-types"></a></h3>
-   <h3 class="heading settled" data-level="8.10" id="the-float-types"><span class="secno">8.10. </span><span class="content">The Float Types</span><a class="self-link" href="#the-float-types"></a></h3>
-   <h3 class="heading settled" data-level="8.11" id="the-fn-types"><span class="secno">8.11. </span><span class="content">The Fn Types</span><a class="self-link" href="#the-fn-types"></a></h3>
-   <h3 class="heading settled" data-level="8.12" id="the-frame-types"><span class="secno">8.12. </span><span class="content">The Frame Types</span><a class="self-link" href="#the-frame-types"></a></h3>
-   <h3 class="heading settled" data-level="8.13" id="the-int-types"><span class="secno">8.13. </span><span class="content">The Int Types</span><a class="self-link" href="#the-int-types"></a></h3>
+   <h3 class="heading settled" data-level="8.8" id="the-errorset-type"><span class="secno">8.8. </span><span class="content">The ErrorSet Type</span><a class="self-link" href="#the-errorset-type"></a></h3>
+   <h3 class="heading settled" data-level="8.9" id="the-errorunion-type"><span class="secno">8.9. </span><span class="content">The ErrorUnion Type</span><a class="self-link" href="#the-errorunion-type"></a></h3>
+   <h3 class="heading settled" data-level="8.10" id="the-float-type"><span class="secno">8.10. </span><span class="content">The Float Type</span><a class="self-link" href="#the-float-type"></a></h3>
+   <h3 class="heading settled" data-level="8.11" id="the-fn-type"><span class="secno">8.11. </span><span class="content">The Fn Type</span><a class="self-link" href="#the-fn-type"></a></h3>
+   <h3 class="heading settled" data-level="8.12" id="the-frame-type"><span class="secno">8.12. </span><span class="content">The Frame Type</span><a class="self-link" href="#the-frame-type"></a></h3>
+   <h3 class="heading settled" data-level="8.13" id="the-int-type"><span class="secno">8.13. </span><span class="content">The Int Type</span><a class="self-link" href="#the-int-type"></a></h3>
    <h3 class="heading settled" data-level="8.14" id="the-noreturn-type"><span class="secno">8.14. </span><span class="content">The NoReturn Type</span><a class="self-link" href="#the-noreturn-type"></a></h3>
    <h3 class="heading settled" data-level="8.15" id="the-null-type"><span class="secno">8.15. </span><span class="content">The Null Type</span><a class="self-link" href="#the-null-type"></a></h3>
-   <h3 class="heading settled" data-level="8.16" id="the-opaque-types"><span class="secno">8.16. </span><span class="content">The Opaque Types</span><a class="self-link" href="#the-opaque-types"></a></h3>
-   <h3 class="heading settled" data-level="8.17" id="the-optional-types"><span class="secno">8.17. </span><span class="content">The Optional Types</span><a class="self-link" href="#the-optional-types"></a></h3>
-   <h3 class="heading settled" data-level="8.18" id="the-pointer-types"><span class="secno">8.18. </span><span class="content">The Pointer Types</span><a class="self-link" href="#the-pointer-types"></a></h3>
-   <h3 class="heading settled" data-level="8.19" id="the-struct-types"><span class="secno">8.19. </span><span class="content">The Struct Types</span><a class="self-link" href="#the-struct-types"></a></h3>
+   <h3 class="heading settled" data-level="8.16" id="the-opaque-type"><span class="secno">8.16. </span><span class="content">The Opaque Type</span><a class="self-link" href="#the-opaque-type"></a></h3>
+   <h3 class="heading settled" data-level="8.17" id="the-optional-type"><span class="secno">8.17. </span><span class="content">The Optional Type</span><a class="self-link" href="#the-optional-type"></a></h3>
+   <h3 class="heading settled" data-level="8.18" id="the-pointer-type"><span class="secno">8.18. </span><span class="content">The Pointer Type</span><a class="self-link" href="#the-pointer-type"></a></h3>
+   <h3 class="heading settled" data-level="8.19" id="the-struct-type"><span class="secno">8.19. </span><span class="content">The Struct Type</span><a class="self-link" href="#the-struct-type"></a></h3>
    <h3 class="heading settled" data-level="8.20" id="the-type-type"><span class="secno">8.20. </span><span class="content">The Type Type</span><a class="self-link" href="#the-type-type"></a></h3>
    <h3 class="heading settled" data-level="8.21" id="the-undefined-type"><span class="secno">8.21. </span><span class="content">The Undefined Type</span><a class="self-link" href="#the-undefined-type"></a></h3>
-   <h3 class="heading settled" data-level="8.22" id="the-union-types"><span class="secno">8.22. </span><span class="content">The Union Types</span><a class="self-link" href="#the-union-types"></a></h3>
-   <h3 class="heading settled" data-level="8.23" id="the-vector-types"><span class="secno">8.23. </span><span class="content">The Vector Types</span><a class="self-link" href="#the-vector-types"></a></h3>
+   <h3 class="heading settled" data-level="8.22" id="the-union-type"><span class="secno">8.22. </span><span class="content">The Union Type</span><a class="self-link" href="#the-union-type"></a></h3>
+   <h3 class="heading settled" data-level="8.23" id="the-vector-type"><span class="secno">8.23. </span><span class="content">The Vector Type</span><a class="self-link" href="#the-vector-type"></a></h3>
    <h3 class="heading settled" data-level="8.24" id="the-void-type"><span class="secno">8.24. </span><span class="content">The Void Type</span><a class="self-link" href="#the-void-type"></a></h3>
    <h2 class="heading settled" data-level="9" id="expressions"><span class="secno">9. </span><span class="content">Expressions</span><a class="self-link" href="#expressions"></a></h2>
+<pre>See types.md for the following
+    struct
+        auto
+        extern
+        packed
+            infer/explicit int
+        field
+            name/type/default
+        init
+    enum
+        auto
+        backing int
+        (non-)exhaustive
+        literal
+    union
+        (un)tagged
+        infer/explicit tagged
+        init
+        mention @unionInit
+    function
+        auto
+        extern
+        type
+        body
+        parameter
+            auto/comptime
+        error union
+    pointer
+        modifiers
+        single
+        multi
+        c
+        slice
+    array
+    vector
+    error set
+
+See gramar.md for the following
+    operators
+        math
+        math+assign
+        address of
+        pointer dereference
+        optional unwrap
+
+TODO const decl
+TODO var decl
+TODO test decl
+TODO comptime block
+TODO usingnamespace decl
+TODO while
+TODO for
+TODO switch
+</pre>
    <h2 class="heading settled" data-level="10" id="statements-and-declarations"><span class="secno">10. </span><span class="content">Statements and Declarations</span><a class="self-link" href="#statements-and-declarations"></a></h2>
+   <p>TODO add references to grammar/types/expressions.md and define semantics</p>
    <h2 class="heading settled" data-level="11" id="compiler-builtins"><span class="secno">11. </span><span class="content">Compiler Builtins</span><a class="self-link" href="#compiler-builtins"></a></h2>
    <p>Builtin functions are provided by the compiler and are prefixed with <code>@</code>. The <code>comptime</code> keyword on a parameter means that the parameter must be known at compile time.</p>
    <p class="issue" id="issue-d3ef085f"><a class="self-link" href="#issue-d3ef085f"></a> TODO figure out how to workaround ID conflict between <code>@frame</code> and <code>@Frame</code> <a href="https://github.com/tabatkins/bikeshed/issues/861">&lt;https://github.com/tabatkins/bikeshed/issues/861></a></p>
-   <ul>
-    <li data-md>
-     <p><dfn data-dfn-type="dfn" data-noexport id="addwithoverflow">@addWithOverflow<a class="self-link" href="#addwithoverflow"></a></dfn></p>
-    <li data-md>
-     <p><dfn data-dfn-type="dfn" data-noexport id="aligncast">@alignCast<a class="self-link" href="#aligncast"></a></dfn></p>
-    <li data-md>
-     <p><dfn data-dfn-type="dfn" data-noexport id="alignof">@alignOf<a class="self-link" href="#alignof"></a></dfn></p>
-    <li data-md>
-     <p><dfn data-dfn-type="dfn" data-noexport id="as">@as<a class="self-link" href="#as"></a></dfn></p>
-    <li data-md>
-     <p><dfn data-dfn-type="dfn" data-noexport id="asynccall">@asyncCall<a class="self-link" href="#asynccall"></a></dfn></p>
-    <li data-md>
-     <p><dfn data-dfn-type="dfn" data-noexport id="atomicload">@atomicLoad<a class="self-link" href="#atomicload"></a></dfn></p>
-    <li data-md>
-     <p><dfn data-dfn-type="dfn" data-noexport id="atomicrmw">@atomicRmw<a class="self-link" href="#atomicrmw"></a></dfn></p>
-    <li data-md>
-     <p><dfn data-dfn-type="dfn" data-noexport id="atomicstore">@atomicStore<a class="self-link" href="#atomicstore"></a></dfn></p>
-    <li data-md>
-     <p><dfn data-dfn-type="dfn" data-noexport id="bitcast">@bitCast<a class="self-link" href="#bitcast"></a></dfn></p>
-    <li data-md>
-     <p><dfn data-dfn-type="dfn" data-noexport id="bitoffsetof">@bitOffsetOf<a class="self-link" href="#bitoffsetof"></a></dfn></p>
-    <li data-md>
-     <p><dfn data-dfn-type="dfn" data-noexport id="bitreverse">@bitReverse<a class="self-link" href="#bitreverse"></a></dfn></p>
-    <li data-md>
-     <p><dfn data-dfn-type="dfn" data-noexport id="bitsizeof">@bitSizeOf<a class="self-link" href="#bitsizeof"></a></dfn></p>
-    <li data-md>
-     <p><dfn data-dfn-type="dfn" data-noexport id="booltoint">@boolToInt<a class="self-link" href="#booltoint"></a></dfn></p>
-    <li data-md>
-     <p><dfn data-dfn-type="dfn" data-noexport id="breakpoint">@breakpoint<a class="self-link" href="#breakpoint"></a></dfn></p>
-    <li data-md>
-     <p><dfn data-dfn-type="dfn" data-noexport id="byteswap">@byteSwap<a class="self-link" href="#byteswap"></a></dfn></p>
-    <li data-md>
-     <p><dfn data-dfn-type="dfn" data-noexport id="call">@call<a class="self-link" href="#call"></a></dfn></p>
-    <li data-md>
-     <p><dfn data-dfn-type="dfn" data-noexport id="cdefine">@cDefine<a class="self-link" href="#cdefine"></a></dfn></p>
-    <li data-md>
-     <p><dfn data-dfn-type="dfn" data-noexport id="ceil">@ceil<a class="self-link" href="#ceil"></a></dfn></p>
-    <li data-md>
-     <p><dfn data-dfn-type="dfn" data-noexport id="cimport">@cImport<a class="self-link" href="#cimport"></a></dfn></p>
-    <li data-md>
-     <p><dfn data-dfn-type="dfn" data-noexport id="cinclude">@cInclude<a class="self-link" href="#cinclude"></a></dfn></p>
-    <li data-md>
-     <p><dfn data-dfn-type="dfn" data-noexport id="clz">@clz<a class="self-link" href="#clz"></a></dfn></p>
-    <li data-md>
-     <p><dfn data-dfn-type="dfn" data-noexport id="cmpxchgstrong">@cmpxchgStrong<a class="self-link" href="#cmpxchgstrong"></a></dfn></p>
-    <li data-md>
-     <p><dfn data-dfn-type="dfn" data-noexport id="cmpxchgweak">@cmpxchgWeak<a class="self-link" href="#cmpxchgweak"></a></dfn></p>
-    <li data-md>
-     <p><dfn data-dfn-type="dfn" data-noexport id="compileerror">@compileError<a class="self-link" href="#compileerror"></a></dfn></p>
-    <li data-md>
-     <p><dfn data-dfn-type="dfn" data-noexport id="compilelog">@compileLog<a class="self-link" href="#compilelog"></a></dfn></p>
-    <li data-md>
-     <p><dfn data-dfn-type="dfn" data-noexport id="cos">@cos<a class="self-link" href="#cos"></a></dfn></p>
-    <li data-md>
-     <p><dfn data-dfn-type="dfn" data-noexport id="ctz">@ctz<a class="self-link" href="#ctz"></a></dfn></p>
-    <li data-md>
-     <p><dfn data-dfn-type="dfn" data-noexport id="cundef">@cUndef<a class="self-link" href="#cundef"></a></dfn></p>
-    <li data-md>
-     <p><dfn data-dfn-type="dfn" data-noexport id="divexact">@divExact<a class="self-link" href="#divexact"></a></dfn></p>
-    <li data-md>
-     <p><dfn data-dfn-type="dfn" data-noexport id="divfloor">@divFloor<a class="self-link" href="#divfloor"></a></dfn></p>
-    <li data-md>
-     <p><dfn data-dfn-type="dfn" data-noexport id="divtrunc">@divTrunc<a class="self-link" href="#divtrunc"></a></dfn></p>
-    <li data-md>
-     <p><dfn data-dfn-type="dfn" data-noexport id="embedfile">@embedFile<a class="self-link" href="#embedfile"></a></dfn></p>
-    <li data-md>
-     <p><dfn data-dfn-type="dfn" data-noexport id="enumtoint">@enumToInt<a class="self-link" href="#enumtoint"></a></dfn></p>
-    <li data-md>
-     <p><dfn data-dfn-type="dfn" data-noexport id="errorname">@errorName<a class="self-link" href="#errorname"></a></dfn></p>
-    <li data-md>
-     <p><dfn data-dfn-type="dfn" data-noexport id="errorreturntrace">@errorReturnTrace<a class="self-link" href="#errorreturntrace"></a></dfn></p>
-    <li data-md>
-     <p><dfn data-dfn-type="dfn" data-noexport id="errortoint">@errorToInt<a class="self-link" href="#errortoint"></a></dfn></p>
-    <li data-md>
-     <p><dfn data-dfn-type="dfn" data-noexport id="errsetcast">@errSetCast<a class="self-link" href="#errsetcast"></a></dfn></p>
-    <li data-md>
-     <p><dfn data-dfn-type="dfn" data-noexport id="exp">@exp<a class="self-link" href="#exp"></a></dfn></p>
-    <li data-md>
-     <p><dfn data-dfn-type="dfn" data-noexport id="exp2">@exp2<a class="self-link" href="#exp2"></a></dfn></p>
-    <li data-md>
-     <p><dfn data-dfn-type="dfn" data-noexport id="export">@export<a class="self-link" href="#export"></a></dfn></p>
-    <li data-md>
-     <p><dfn data-dfn-type="dfn" data-noexport id="extern">@extern<a class="self-link" href="#extern"></a></dfn></p>
-    <li data-md>
-     <p><dfn data-dfn-type="dfn" data-noexport id="fabs">@fabs<a class="self-link" href="#fabs"></a></dfn></p>
-    <li data-md>
-     <p><dfn data-dfn-type="dfn" data-noexport id="fence">@fence<a class="self-link" href="#fence"></a></dfn></p>
-    <li data-md>
-     <p><dfn data-dfn-type="dfn" data-noexport id="field">@field<a class="self-link" href="#field"></a></dfn></p>
-    <li data-md>
-     <p><dfn data-dfn-type="dfn" data-noexport id="fieldparentptr">@fieldParentPtr<a class="self-link" href="#fieldparentptr"></a></dfn></p>
-    <li data-md>
-     <p><dfn data-dfn-type="dfn" data-noexport id="floatcast">@floatCast<a class="self-link" href="#floatcast"></a></dfn></p>
-    <li data-md>
-     <p><dfn data-dfn-type="dfn" data-noexport id="floattoint">@floatToInt<a class="self-link" href="#floattoint"></a></dfn></p>
-    <li data-md>
-     <p><dfn data-dfn-type="dfn" data-noexport id="floor">@floor<a class="self-link" href="#floor"></a></dfn></p>
-   </ul>
+   <dl>
+    <dt data-md><dfn data-dfn-type="dfn" data-noexport id="addwithoverflow">@addWithOverflow<a class="self-link" href="#addwithoverflow"></a></dfn>
+    <dt data-md><dfn data-dfn-type="dfn" data-noexport id="aligncast">@alignCast<a class="self-link" href="#aligncast"></a></dfn>
+    <dt data-md><dfn data-dfn-type="dfn" data-noexport id="alignof">@alignOf<a class="self-link" href="#alignof"></a></dfn>
+    <dt data-md><dfn data-dfn-type="dfn" data-noexport id="as">@as<a class="self-link" href="#as"></a></dfn>
+    <dt data-md><dfn data-dfn-type="dfn" data-noexport id="asynccall">@asyncCall<a class="self-link" href="#asynccall"></a></dfn>
+    <dt data-md><dfn data-dfn-type="dfn" data-noexport id="atomicload">@atomicLoad<a class="self-link" href="#atomicload"></a></dfn>
+    <dt data-md><dfn data-dfn-type="dfn" data-noexport id="atomicrmw">@atomicRmw<a class="self-link" href="#atomicrmw"></a></dfn>
+    <dt data-md><dfn data-dfn-type="dfn" data-noexport id="atomicstore">@atomicStore<a class="self-link" href="#atomicstore"></a></dfn>
+    <dt data-md><dfn data-dfn-type="dfn" data-noexport id="bitcast">@bitCast<a class="self-link" href="#bitcast"></a></dfn>
+    <dt data-md><dfn data-dfn-type="dfn" data-noexport id="bitoffsetof">@bitOffsetOf<a class="self-link" href="#bitoffsetof"></a></dfn>
+    <dt data-md><dfn data-dfn-type="dfn" data-noexport id="bitreverse">@bitReverse<a class="self-link" href="#bitreverse"></a></dfn>
+    <dt data-md><dfn data-dfn-type="dfn" data-noexport id="bitsizeof">@bitSizeOf<a class="self-link" href="#bitsizeof"></a></dfn>
+    <dt data-md><dfn data-dfn-type="dfn" data-noexport id="booltoint">@boolToInt<a class="self-link" href="#booltoint"></a></dfn>
+    <dt data-md><dfn data-dfn-type="dfn" data-noexport id="breakpoint">@breakpoint<a class="self-link" href="#breakpoint"></a></dfn>
+    <dt data-md><dfn data-dfn-type="dfn" data-noexport id="byteswap">@byteSwap<a class="self-link" href="#byteswap"></a></dfn>
+    <dt data-md><dfn data-dfn-type="dfn" data-noexport id="call">@call<a class="self-link" href="#call"></a></dfn>
+    <dt data-md><dfn data-dfn-type="dfn" data-noexport id="cdefine">@cDefine<a class="self-link" href="#cdefine"></a></dfn>
+    <dt data-md><dfn data-dfn-type="dfn" data-noexport id="ceil">@ceil<a class="self-link" href="#ceil"></a></dfn>
+    <dt data-md><dfn data-dfn-type="dfn" data-noexport id="cimport">@cImport<a class="self-link" href="#cimport"></a></dfn>
+    <dt data-md><dfn data-dfn-type="dfn" data-noexport id="cinclude">@cInclude<a class="self-link" href="#cinclude"></a></dfn>
+    <dt data-md><dfn data-dfn-type="dfn" data-noexport id="clz">@clz<a class="self-link" href="#clz"></a></dfn>
+    <dt data-md><dfn data-dfn-type="dfn" data-noexport id="cmpxchgstrong">@cmpxchgStrong<a class="self-link" href="#cmpxchgstrong"></a></dfn>
+    <dt data-md><dfn data-dfn-type="dfn" data-noexport id="cmpxchgweak">@cmpxchgWeak<a class="self-link" href="#cmpxchgweak"></a></dfn>
+    <dt data-md><dfn data-dfn-type="dfn" data-noexport id="compileerror">@compileError<a class="self-link" href="#compileerror"></a></dfn>
+    <dt data-md><dfn data-dfn-type="dfn" data-noexport id="compilelog">@compileLog<a class="self-link" href="#compilelog"></a></dfn>
+    <dt data-md><dfn data-dfn-type="dfn" data-noexport id="cos">@cos<a class="self-link" href="#cos"></a></dfn>
+    <dt data-md><dfn data-dfn-type="dfn" data-noexport id="ctz">@ctz<a class="self-link" href="#ctz"></a></dfn>
+    <dt data-md><dfn data-dfn-type="dfn" data-noexport id="cundef">@cUndef<a class="self-link" href="#cundef"></a></dfn>
+    <dt data-md><dfn data-dfn-type="dfn" data-noexport id="divexact">@divExact<a class="self-link" href="#divexact"></a></dfn>
+    <dt data-md><dfn data-dfn-type="dfn" data-noexport id="divfloor">@divFloor<a class="self-link" href="#divfloor"></a></dfn>
+    <dt data-md><dfn data-dfn-type="dfn" data-noexport id="divtrunc">@divTrunc<a class="self-link" href="#divtrunc"></a></dfn>
+    <dt data-md><dfn data-dfn-type="dfn" data-noexport id="embedfile">@embedFile<a class="self-link" href="#embedfile"></a></dfn>
+    <dt data-md><dfn data-dfn-type="dfn" data-noexport id="enumtoint">@enumToInt<a class="self-link" href="#enumtoint"></a></dfn>
+    <dt data-md><dfn data-dfn-type="dfn" data-noexport id="errorname">@errorName<a class="self-link" href="#errorname"></a></dfn>
+    <dt data-md><dfn data-dfn-type="dfn" data-noexport id="errorreturntrace">@errorReturnTrace<a class="self-link" href="#errorreturntrace"></a></dfn>
+    <dt data-md><dfn data-dfn-type="dfn" data-noexport id="errortoint">@errorToInt<a class="self-link" href="#errortoint"></a></dfn>
+    <dt data-md><dfn data-dfn-type="dfn" data-noexport id="errsetcast">@errSetCast<a class="self-link" href="#errsetcast"></a></dfn>
+    <dt data-md><dfn data-dfn-type="dfn" data-noexport id="exp">@exp<a class="self-link" href="#exp"></a></dfn>
+    <dt data-md><dfn data-dfn-type="dfn" data-noexport id="exp2">@exp2<a class="self-link" href="#exp2"></a></dfn>
+    <dt data-md><dfn data-dfn-type="dfn" data-noexport id="export①">@export<a class="self-link" href="#export①"></a></dfn>
+    <dt data-md><dfn data-dfn-type="dfn" data-noexport id="extern①">@extern<a class="self-link" href="#extern①"></a></dfn>
+    <dt data-md><dfn data-dfn-type="dfn" data-noexport id="fabs">@fabs<a class="self-link" href="#fabs"></a></dfn>
+    <dt data-md><dfn data-dfn-type="dfn" data-noexport id="fence">@fence<a class="self-link" href="#fence"></a></dfn>
+    <dt data-md><dfn data-dfn-type="dfn" data-noexport id="field">@field<a class="self-link" href="#field"></a></dfn>
+    <dt data-md><dfn data-dfn-type="dfn" data-noexport id="fieldparentptr">@fieldParentPtr<a class="self-link" href="#fieldparentptr"></a></dfn>
+    <dt data-md><dfn data-dfn-type="dfn" data-noexport id="floatcast">@floatCast<a class="self-link" href="#floatcast"></a></dfn>
+    <dt data-md><dfn data-dfn-type="dfn" data-noexport id="floattoint">@floatToInt<a class="self-link" href="#floattoint"></a></dfn>
+    <dt data-md><dfn data-dfn-type="dfn" data-noexport id="floor">@floor<a class="self-link" href="#floor"></a></dfn>
+   </dl>
    <p></p>
-   <ul>
-    <li data-md>
-     <p><dfn data-dfn-type="dfn" data-noexport id="frame">@Frame<a class="self-link" href="#frame"></a></dfn></p>
-    <li data-md>
-     <p><dfn data-dfn-type="dfn" data-noexport id="frameaddress">@frameAddress<a class="self-link" href="#frameaddress"></a></dfn></p>
-    <li data-md>
-     <p><dfn data-dfn-type="dfn" data-noexport id="framesize">@frameSize<a class="self-link" href="#framesize"></a></dfn></p>
-    <li data-md>
-     <p><dfn data-dfn-type="dfn" data-noexport id="hasdecl">@hasDecl<a class="self-link" href="#hasdecl"></a></dfn></p>
-    <li data-md>
-     <p><dfn data-dfn-type="dfn" data-noexport id="hasfield">@hasField<a class="self-link" href="#hasfield"></a></dfn></p>
-    <li data-md>
-     <p><dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport id="import">@import</dfn></p>
-    <li data-md>
-     <p><dfn data-dfn-type="dfn" data-noexport id="intcast">@intCast<a class="self-link" href="#intcast"></a></dfn></p>
-    <li data-md>
-     <p><dfn data-dfn-type="dfn" data-noexport id="inttoenum">@intToEnum<a class="self-link" href="#inttoenum"></a></dfn></p>
-    <li data-md>
-     <p><dfn data-dfn-type="dfn" data-noexport id="inttoerror">@intToError<a class="self-link" href="#inttoerror"></a></dfn></p>
-    <li data-md>
-     <p><dfn data-dfn-type="dfn" data-noexport id="inttofloat">@intToFloat<a class="self-link" href="#inttofloat"></a></dfn></p>
-    <li data-md>
-     <p><dfn data-dfn-type="dfn" data-noexport id="inttoptr">@intToPtr<a class="self-link" href="#inttoptr"></a></dfn></p>
-    <li data-md>
-     <p><dfn data-dfn-type="dfn" data-noexport id="log">@log<a class="self-link" href="#log"></a></dfn></p>
-    <li data-md>
-     <p><dfn data-dfn-type="dfn" data-noexport id="log10">@log10<a class="self-link" href="#log10"></a></dfn></p>
-    <li data-md>
-     <p><dfn data-dfn-type="dfn" data-noexport id="log2">@log2<a class="self-link" href="#log2"></a></dfn></p>
-    <li data-md>
-     <p><dfn data-dfn-type="dfn" data-noexport id="maximum">@maximum<a class="self-link" href="#maximum"></a></dfn></p>
-    <li data-md>
-     <p><dfn data-dfn-type="dfn" data-noexport id="memcpy">@memcpy<a class="self-link" href="#memcpy"></a></dfn></p>
-    <li data-md>
-     <p><dfn data-dfn-type="dfn" data-noexport id="memset">@memset<a class="self-link" href="#memset"></a></dfn></p>
-    <li data-md>
-     <p><dfn data-dfn-type="dfn" data-noexport id="minimum">@minimum<a class="self-link" href="#minimum"></a></dfn></p>
-    <li data-md>
-     <p><dfn data-dfn-type="dfn" data-noexport id="mod">@mod<a class="self-link" href="#mod"></a></dfn></p>
-    <li data-md>
-     <p><dfn data-dfn-type="dfn" data-noexport id="muladd">@mulAdd<a class="self-link" href="#muladd"></a></dfn></p>
-    <li data-md>
-     <p><dfn data-dfn-type="dfn" data-noexport id="mulwithoverflow">@mulWithOverflow<a class="self-link" href="#mulwithoverflow"></a></dfn></p>
-    <li data-md>
-     <p><dfn data-dfn-type="dfn" data-noexport id="offsetof">@offsetOf<a class="self-link" href="#offsetof"></a></dfn></p>
-    <li data-md>
-     <p><dfn data-dfn-type="dfn" data-noexport id="panic">@panic<a class="self-link" href="#panic"></a></dfn></p>
-    <li data-md>
-     <p><dfn data-dfn-type="dfn" data-noexport id="popcount">@popCount<a class="self-link" href="#popcount"></a></dfn></p>
-    <li data-md>
-     <p><dfn data-dfn-type="dfn" data-noexport id="prefetch">@prefetch<a class="self-link" href="#prefetch"></a></dfn></p>
-    <li data-md>
-     <p><dfn data-dfn-type="dfn" data-noexport id="ptrcast">@ptrCast<a class="self-link" href="#ptrcast"></a></dfn></p>
-    <li data-md>
-     <p><dfn data-dfn-type="dfn" data-noexport id="ptrtoint">@ptrToInt<a class="self-link" href="#ptrtoint"></a></dfn></p>
-    <li data-md>
-     <p><dfn data-dfn-type="dfn" data-noexport id="reduce">@reduce<a class="self-link" href="#reduce"></a></dfn></p>
-    <li data-md>
-     <p><dfn data-dfn-type="dfn" data-noexport id="rem">@rem<a class="self-link" href="#rem"></a></dfn></p>
-    <li data-md>
-     <p><dfn data-dfn-type="dfn" data-noexport id="returnaddress">@returnAddress<a class="self-link" href="#returnaddress"></a></dfn></p>
-    <li data-md>
-     <p><dfn data-dfn-type="dfn" data-noexport id="round">@round<a class="self-link" href="#round"></a></dfn></p>
-    <li data-md>
-     <p><dfn data-dfn-type="dfn" data-noexport id="select">@select<a class="self-link" href="#select"></a></dfn></p>
-    <li data-md>
-     <p><dfn data-dfn-type="dfn" data-noexport id="setalignstack">@setAlignStack<a class="self-link" href="#setalignstack"></a></dfn></p>
-    <li data-md>
-     <p><dfn data-dfn-type="dfn" data-noexport id="setcold">@setCold<a class="self-link" href="#setcold"></a></dfn></p>
-    <li data-md>
-     <p><dfn data-dfn-type="dfn" data-noexport id="setevalbranchquota">@setEvalBranchQuota<a class="self-link" href="#setevalbranchquota"></a></dfn></p>
-    <li data-md>
-     <p><dfn data-dfn-type="dfn" data-noexport id="setfloatmode">@setFloatMode<a class="self-link" href="#setfloatmode"></a></dfn></p>
-    <li data-md>
-     <p><dfn data-dfn-type="dfn" data-noexport id="setruntimesafety">@setRuntimeSafety<a class="self-link" href="#setruntimesafety"></a></dfn></p>
-    <li data-md>
-     <p><dfn data-dfn-type="dfn" data-noexport id="shlexact">@shlExact<a class="self-link" href="#shlexact"></a></dfn></p>
-    <li data-md>
-     <p><dfn data-dfn-type="dfn" data-noexport id="shlwithoverflow">@shlWithOverflow<a class="self-link" href="#shlwithoverflow"></a></dfn></p>
-    <li data-md>
-     <p><dfn data-dfn-type="dfn" data-noexport id="shrexact">@shrExact<a class="self-link" href="#shrexact"></a></dfn></p>
-    <li data-md>
-     <p><dfn data-dfn-type="dfn" data-noexport id="shuffle">@shuffle<a class="self-link" href="#shuffle"></a></dfn></p>
-    <li data-md>
-     <p><dfn data-dfn-type="dfn" data-noexport id="sin">@sin<a class="self-link" href="#sin"></a></dfn></p>
-    <li data-md>
-     <p><dfn data-dfn-type="dfn" data-noexport id="sizeof">@sizeOf<a class="self-link" href="#sizeof"></a></dfn></p>
-    <li data-md>
-     <p><dfn data-dfn-type="dfn" data-noexport id="splat">@splat<a class="self-link" href="#splat"></a></dfn></p>
-    <li data-md>
-     <p><dfn data-dfn-type="dfn" data-noexport id="sqrt">@sqrt<a class="self-link" href="#sqrt"></a></dfn></p>
-    <li data-md>
-     <p><dfn data-dfn-type="dfn" data-noexport id="src">@src<a class="self-link" href="#src"></a></dfn></p>
-    <li data-md>
-     <p><dfn data-dfn-type="dfn" data-noexport id="subwithoverflow">@subWithOverflow<a class="self-link" href="#subwithoverflow"></a></dfn></p>
-    <li data-md>
-     <p><dfn data-dfn-type="dfn" data-noexport id="tagname">@tagName<a class="self-link" href="#tagname"></a></dfn></p>
-    <li data-md>
-     <p><dfn data-dfn-type="dfn" data-noexport id="tan">@tan<a class="self-link" href="#tan"></a></dfn></p>
-    <li data-md>
-     <p><dfn data-dfn-type="dfn" data-noexport id="this">@This<a class="self-link" href="#this"></a></dfn></p>
-    <li data-md>
-     <p><dfn data-dfn-type="dfn" data-noexport id="trunc">@trunc<a class="self-link" href="#trunc"></a></dfn></p>
-    <li data-md>
-     <p><dfn data-dfn-type="dfn" data-noexport id="truncate">@truncate<a class="self-link" href="#truncate"></a></dfn></p>
-    <li data-md>
-     <p><dfn data-dfn-type="dfn" data-noexport id="type">@Type<a class="self-link" href="#type"></a></dfn></p>
-    <li data-md>
-     <p><dfn data-dfn-type="dfn" data-noexport id="typeinfo">@typeInfo<a class="self-link" href="#typeinfo"></a></dfn></p>
-    <li data-md>
-     <p><dfn data-dfn-type="dfn" data-noexport id="typename">@typeName<a class="self-link" href="#typename"></a></dfn></p>
-    <li data-md>
-     <p><dfn data-dfn-type="dfn" data-noexport id="typeof">@TypeOf<a class="self-link" href="#typeof"></a></dfn></p>
-    <li data-md>
-     <p><dfn data-dfn-type="dfn" data-noexport id="unioninit">@unionInit<a class="self-link" href="#unioninit"></a></dfn></p>
-    <li data-md>
-     <p><dfn data-dfn-type="dfn" data-noexport id="vector">@Vector<a class="self-link" href="#vector"></a></dfn></p>
-    <li data-md>
-     <p><dfn data-dfn-type="dfn" data-noexport id="wasmmemorygrow">@wasmMemoryGrow<a class="self-link" href="#wasmmemorygrow"></a></dfn></p>
-    <li data-md>
-     <p><dfn data-dfn-type="dfn" data-noexport id="wasmmemorysize">@wasmMemorySize<a class="self-link" href="#wasmmemorysize"></a></dfn></p>
-   </ul>
+   <dl>
+    <dt data-md><dfn data-dfn-type="dfn" data-noexport id="frame">@Frame<a class="self-link" href="#frame"></a></dfn>
+    <dt data-md><dfn data-dfn-type="dfn" data-noexport id="frameaddress">@frameAddress<a class="self-link" href="#frameaddress"></a></dfn>
+    <dt data-md><dfn data-dfn-type="dfn" data-noexport id="framesize">@frameSize<a class="self-link" href="#framesize"></a></dfn>
+    <dt data-md><dfn data-dfn-type="dfn" data-noexport id="hasdecl">@hasDecl<a class="self-link" href="#hasdecl"></a></dfn>
+    <dt data-md><dfn data-dfn-type="dfn" data-noexport id="hasfield">@hasField<a class="self-link" href="#hasfield"></a></dfn>
+    <dt data-md><dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport id="import">@import</dfn>
+    <dt data-md><dfn data-dfn-type="dfn" data-noexport id="intcast">@intCast<a class="self-link" href="#intcast"></a></dfn>
+    <dt data-md><dfn data-dfn-type="dfn" data-noexport id="inttoenum">@intToEnum<a class="self-link" href="#inttoenum"></a></dfn>
+    <dt data-md><dfn data-dfn-type="dfn" data-noexport id="inttoerror">@intToError<a class="self-link" href="#inttoerror"></a></dfn>
+    <dt data-md><dfn data-dfn-type="dfn" data-noexport id="inttofloat">@intToFloat<a class="self-link" href="#inttofloat"></a></dfn>
+    <dt data-md><dfn data-dfn-type="dfn" data-noexport id="inttoptr">@intToPtr<a class="self-link" href="#inttoptr"></a></dfn>
+    <dt data-md><dfn data-dfn-type="dfn" data-noexport id="log">@log<a class="self-link" href="#log"></a></dfn>
+    <dt data-md><dfn data-dfn-type="dfn" data-noexport id="log10">@log10<a class="self-link" href="#log10"></a></dfn>
+    <dt data-md><dfn data-dfn-type="dfn" data-noexport id="log2">@log2<a class="self-link" href="#log2"></a></dfn>
+    <dt data-md><dfn data-dfn-type="dfn" data-noexport id="maximum">@maximum<a class="self-link" href="#maximum"></a></dfn>
+    <dt data-md><dfn data-dfn-type="dfn" data-noexport id="memcpy">@memcpy<a class="self-link" href="#memcpy"></a></dfn>
+    <dt data-md><dfn data-dfn-type="dfn" data-noexport id="memset">@memset<a class="self-link" href="#memset"></a></dfn>
+    <dt data-md><dfn data-dfn-type="dfn" data-noexport id="minimum">@minimum<a class="self-link" href="#minimum"></a></dfn>
+    <dt data-md><dfn data-dfn-type="dfn" data-noexport id="mod">@mod<a class="self-link" href="#mod"></a></dfn>
+    <dt data-md><dfn data-dfn-type="dfn" data-noexport id="muladd">@mulAdd<a class="self-link" href="#muladd"></a></dfn>
+    <dt data-md><dfn data-dfn-type="dfn" data-noexport id="mulwithoverflow">@mulWithOverflow<a class="self-link" href="#mulwithoverflow"></a></dfn>
+    <dt data-md><dfn data-dfn-type="dfn" data-noexport id="offsetof">@offsetOf<a class="self-link" href="#offsetof"></a></dfn>
+    <dt data-md><dfn data-dfn-type="dfn" data-noexport id="panic">@panic<a class="self-link" href="#panic"></a></dfn>
+    <dt data-md><dfn data-dfn-type="dfn" data-noexport id="popcount">@popCount<a class="self-link" href="#popcount"></a></dfn>
+    <dt data-md><dfn data-dfn-type="dfn" data-noexport id="prefetch">@prefetch<a class="self-link" href="#prefetch"></a></dfn>
+    <dt data-md><dfn data-dfn-type="dfn" data-noexport id="ptrcast">@ptrCast<a class="self-link" href="#ptrcast"></a></dfn>
+    <dt data-md><dfn data-dfn-type="dfn" data-noexport id="ptrtoint">@ptrToInt<a class="self-link" href="#ptrtoint"></a></dfn>
+    <dt data-md><dfn data-dfn-type="dfn" data-noexport id="reduce">@reduce<a class="self-link" href="#reduce"></a></dfn>
+    <dt data-md><dfn data-dfn-type="dfn" data-noexport id="rem">@rem<a class="self-link" href="#rem"></a></dfn>
+    <dt data-md><dfn data-dfn-type="dfn" data-noexport id="returnaddress">@returnAddress<a class="self-link" href="#returnaddress"></a></dfn>
+    <dt data-md><dfn data-dfn-type="dfn" data-noexport id="round">@round<a class="self-link" href="#round"></a></dfn>
+    <dt data-md><dfn data-dfn-type="dfn" data-noexport id="select">@select<a class="self-link" href="#select"></a></dfn>
+    <dt data-md><dfn data-dfn-type="dfn" data-noexport id="setalignstack">@setAlignStack<a class="self-link" href="#setalignstack"></a></dfn>
+    <dt data-md><dfn data-dfn-type="dfn" data-noexport id="setcold">@setCold<a class="self-link" href="#setcold"></a></dfn>
+    <dt data-md><dfn data-dfn-type="dfn" data-noexport id="setevalbranchquota">@setEvalBranchQuota<a class="self-link" href="#setevalbranchquota"></a></dfn>
+    <dt data-md><dfn data-dfn-type="dfn" data-noexport id="setfloatmode">@setFloatMode<a class="self-link" href="#setfloatmode"></a></dfn>
+    <dt data-md><dfn data-dfn-type="dfn" data-noexport id="setruntimesafety">@setRuntimeSafety<a class="self-link" href="#setruntimesafety"></a></dfn>
+    <dt data-md><dfn data-dfn-type="dfn" data-noexport id="shlexact">@shlExact<a class="self-link" href="#shlexact"></a></dfn>
+    <dt data-md><dfn data-dfn-type="dfn" data-noexport id="shlwithoverflow">@shlWithOverflow<a class="self-link" href="#shlwithoverflow"></a></dfn>
+    <dt data-md><dfn data-dfn-type="dfn" data-noexport id="shrexact">@shrExact<a class="self-link" href="#shrexact"></a></dfn>
+    <dt data-md><dfn data-dfn-type="dfn" data-noexport id="shuffle">@shuffle<a class="self-link" href="#shuffle"></a></dfn>
+    <dt data-md><dfn data-dfn-type="dfn" data-noexport id="sin">@sin<a class="self-link" href="#sin"></a></dfn>
+    <dt data-md><dfn data-dfn-type="dfn" data-noexport id="sizeof">@sizeOf<a class="self-link" href="#sizeof"></a></dfn>
+    <dt data-md><dfn data-dfn-type="dfn" data-noexport id="splat">@splat<a class="self-link" href="#splat"></a></dfn>
+    <dt data-md><dfn data-dfn-type="dfn" data-noexport id="sqrt">@sqrt<a class="self-link" href="#sqrt"></a></dfn>
+    <dt data-md><dfn data-dfn-type="dfn" data-noexport id="src">@src<a class="self-link" href="#src"></a></dfn>
+    <dt data-md><dfn data-dfn-type="dfn" data-noexport id="subwithoverflow">@subWithOverflow<a class="self-link" href="#subwithoverflow"></a></dfn>
+    <dt data-md><dfn data-dfn-type="dfn" data-noexport id="tagname">@tagName<a class="self-link" href="#tagname"></a></dfn>
+    <dt data-md><dfn data-dfn-type="dfn" data-noexport id="tan">@tan<a class="self-link" href="#tan"></a></dfn>
+    <dt data-md><dfn data-dfn-type="dfn" data-noexport id="this">@This<a class="self-link" href="#this"></a></dfn>
+    <dt data-md><dfn data-dfn-type="dfn" data-noexport id="trunc">@trunc<a class="self-link" href="#trunc"></a></dfn>
+    <dt data-md><dfn data-dfn-type="dfn" data-noexport id="truncate">@truncate<a class="self-link" href="#truncate"></a></dfn>
+    <dt data-md><dfn data-dfn-type="dfn" data-noexport id="type">@Type<a class="self-link" href="#type"></a></dfn>
+    <dt data-md><dfn data-dfn-type="dfn" data-noexport id="typeinfo">@typeInfo<a class="self-link" href="#typeinfo"></a></dfn>
+    <dt data-md><dfn data-dfn-type="dfn" data-noexport id="typename">@typeName<a class="self-link" href="#typename"></a></dfn>
+    <dt data-md><dfn data-dfn-type="dfn" data-noexport id="typeof">@TypeOf<a class="self-link" href="#typeof"></a></dfn>
+    <dt data-md><dfn data-dfn-type="dfn" data-noexport id="unioninit">@unionInit<a class="self-link" href="#unioninit"></a></dfn>
+    <dt data-md><dfn data-dfn-type="dfn" data-noexport id="vector">@Vector<a class="self-link" href="#vector"></a></dfn>
+    <dt data-md><dfn data-dfn-type="dfn" data-noexport id="wasmmemorygrow">@wasmMemoryGrow<a class="self-link" href="#wasmmemorygrow"></a></dfn>
+    <dt data-md><dfn data-dfn-type="dfn" data-noexport id="wasmmemorysize">@wasmMemorySize<a class="self-link" href="#wasmmemorysize"></a></dfn>
+   </dl>
    <h2 class="heading settled" data-level="12" id="the-std-package"><span class="secno">12. </span><span class="content">The <code>std</code> Package</span><a class="self-link" href="#the-std-package"></a></h2>
    <p>A special package made available to all source files. Its contents can be found in data files for the the upstream compiler implementation at <a href="https://github.com/ziglang/zig/tree/master/lib/std/">github.com/ziglang/zig/lib/std/</a>.</p>
    <h2 class="heading settled" data-level="13" id="the-builtin-package"><span class="secno">13. </span><span class="content">The <code>builtin</code> Package</span><a class="self-link" href="#the-builtin-package"></a></h2>
    <p>A special package made available to all source files. Declarations in this package fall under two categories: those identifying meta information about the currently executing compiler implementation and those identifying information about the compilation unit currently being processed.</p>
+   <h3 class="heading settled" data-level="13.1" id="compiler-information"><span class="secno">13.1. </span><span class="content">Compiler information</span><a class="self-link" href="#compiler-information"></a></h3>
+   <dl>
+    <dt data-md><code>zig_version</code>
+    <dd data-md>
+     <p>A <code>std.SemanticVersion</code> representing the version of the currently executing compiler implementation.</p>
+    <dt data-md><code>zig_backend</code>
+    <dd data-md>
+     <p>A <code>std.builtin.CompilerBackend</code> identifying the currently executing compiler implementation.</p>
+    <dt data-md><code>have_error_return_tracing</code>
+    <dd data-md>
+     <p>= true;</p>
+    <dt data-md><code>valgrind_support</code>
+    <dd data-md>
+     <p>A <a data-link-type="dfn" href="https://infra.spec.whatwg.org/#boolean" id="ref-for-boolean">Boolean</a> value representing whether the currently executing compiler implementation supports <a href="https://valgrind.org/">Valgrind’s</a> Memcheck tool for detecting improper access of Undefined memory.</p>
+   </dl>
+   <h3 class="heading settled" data-level="13.2" id="compilation-information"><span class="secno">13.2. </span><span class="content">Compilation information</span><a class="self-link" href="#compilation-information"></a></h3>
+   <dl>
+    <dt data-md><code>output_mode</code>
+    <dt data-md><code>link_mode</code>
+    <dt data-md><code>is_test</code>
+    <dt data-md><code>single_threaded</code>
+    <dt data-md><code>abi</code>
+    <dt data-md><code>cpu</code>
+    <dt data-md><code>os</code>
+    <dt data-md><code>target</code>
+    <dt data-md><code>object_format</code>
+    <dt data-md><code>mode</code>
+    <dt data-md><code>link_libc</code>
+    <dt data-md><code>link_libcpp</code>
+    <dt data-md><code>sanitize_thread</code>
+    <dt data-md><code>position_independent_code</code>
+    <dt data-md><code>position_independent_executable</code>
+    <dt data-md><code>strip_debug_info</code>
+    <dt data-md><code>code_model</code>
+   </dl>
+   <h2 class="heading settled" data-level="14" id="the-root-package"><span class="secno">14. </span><span class="content">The <code>root</code> Package</span><a class="self-link" href="#the-root-package"></a></h2>
+   <h2 class="heading settled" data-level="15" id="undefined-behavior"><span class="secno">15. </span><span class="content">Undefined Behavior</span><a class="self-link" href="#undefined-behavior"></a></h2>
+   <p class="issue" id="issue-8e20654a"><a class="self-link" href="#issue-8e20654a"></a> tracking issue for the exhaustiveness of this section <a href="https://github.com/ziglang/zig/issues/1966">&lt;https://github.com/ziglang/zig/issues/1966></a></p>
+   <h2 class="heading settled" data-level="16" id="comptime①"><span class="secno">16. </span><span class="content">Comptime</span><a class="self-link" href="#comptime①"></a></h2>
+   <h2 class="heading settled" data-level="17" id="c-interoperability"><span class="secno">17. </span><span class="content">C Interoperability</span><a class="self-link" href="#c-interoperability"></a></h2>
   </main>
 <script>
 (function() {
