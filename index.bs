@@ -14,7 +14,7 @@ Boilerplate: omit conformance, abstract no, copyright no, index no, issues-index
 
 # Introduction
 
-This standard defines the Zig [ISODATE] Language. It is a Living Document and kept up to date on a best-effort basis with the latest master releases of [https://github.com/ziglang/zig](https://github.com/ziglang/zig) and provided as-is. As Zig is a pre-1.0 language, any information is capable of changing as new proposals are accepted and implemented. The core parts of the language are fairly stable and likely to remain unchanged going forward but all discretion is up to the Zig Core Team.
+This standard defines the Zig [ISODATE] Language. It is a Living Document and kept up to date on a best-effort basis with the latest master releases of [github.com/ziglang/zig](https://github.com/ziglang/zig) and provided as-is. As Zig is a pre-1.0 language, any information is capable of changing as new proposals are accepted and implemented. The core parts of the language are fairly stable and likely to remain unchanged going forward but all discretion is up to the Zig Core Team.
 
 TODO more history information
 
