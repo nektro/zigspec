@@ -4,6 +4,8 @@ Algorithms within this specification manipulate values each of which has an asso
 
 Within this specification, the notation "Type(*x*)" is used as shorthand for "*the type of x*" where "type" refers to the Zig language and specification types defined in this clause.
 
+TODO include literal definitions in this section
+
 ## The AnyFrame Type
 
 ## The Array Type

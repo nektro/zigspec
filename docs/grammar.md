@@ -89,6 +89,5 @@ Note: Any [=TAB=] is rejected in a [=Comment=] since it is ambiguous how it shou
 
 ## Keywords
 
-## Literals
 
 ## Operators
