@@ -11,17 +11,17 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
-      - run: mkdir public
+      - run: mkdir dist
 
       - name: Output to HTML
         uses: netwerk-digitaal-erfgoed/bikeshed-action@v1
         with:
           source: index.bs
-          destination: public/index.html
+          destination: dist/index.html
 
       - name: Publish HTML to GitHub Pages
         if: success()
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: public
+          publish_dir: dist
