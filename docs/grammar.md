@@ -85,9 +85,114 @@ Note: Any [=TAB=] is rejected in a [=Comment=] since it is ambiguous how it shou
 
 ## Tokens
 
+Note: Defined by `std.zig.Token.Tag` in [/lib/std/zig/tokenizer.zig](https://github.com/ziglang/zig/blob/master/lib/std/zig/tokenizer.zig) Could be interpreted by other code. Railroad diagrams for complex code in [[#expressions]].
+
+Note: TODO how should this section be expanded?
+
 ## Identifiers
+
+TODO digit definitions in type.md literal sections
+
+```
+IDENTIFIER
+    <- !keyword [A-Za-z_] [A-Za-z0-9_]* skip
+     / "@\"" string_char* "\""                            skip
+```
 
 ## Keywords
 
+: <dfn>align</dfn>
+
+: <dfn>allowzero</dfn>
+
+: <dfn>and</dfn>
+
+: <dfn>anyframe</dfn>
+
+: <dfn>anytype</dfn>
+
+: <dfn>asm</dfn>
+
+: <dfn>async</dfn>
+
+: <dfn>await</dfn>
+
+: <dfn>break</dfn>
+
+: <dfn>catch</dfn>
+
+: <dfn>comptime</dfn>
+
+: <dfn>const</dfn>
+
+: <dfn>continue</dfn>
+
+: <dfn>defer</dfn>
+
+: <dfn>else</dfn>
+
+: <dfn>enum</dfn>
+
+: <dfn>errdefer</dfn>
+
+: <dfn>error</dfn>
+
+: <dfn>export</dfn>
+
+: <dfn>extern</dfn>
+
+: <dfn>fn</dfn>
+
+: <dfn>for</dfn>
+
+: <dfn>if</dfn>
+
+: <dfn>inline</dfn>
+
+: <dfn>noalias</dfn>
+
+: <dfn>nosuspend</dfn>
+
+: <dfn>or</dfn>
+
+: <dfn>orelse</dfn>
+
+: <dfn>packed</dfn>
+
+: <dfn>pub</dfn>
+
+: <dfn>resume</dfn>
+
+: <dfn>return</dfn>
+
+: <dfn>linksection</dfn>
+
+: <dfn>struct</dfn>
+
+: <dfn>suspend</dfn>
+
+: <dfn>switch</dfn>
+
+: <dfn>test</dfn>
+
+: <dfn>threadlocal</dfn>
+
+: <dfn>try</dfn>
+
+: <dfn>union</dfn>
+
+: <dfn>unreachable</dfn>
+
+: <dfn>usingnamespace</dfn>
+
+: <dfn>var</dfn>
+
+: <dfn>volatile</dfn>
+
+: <dfn>while</dfn>
 
 ## Operators
+
+filter out of `std.zig.Token.Tag`
+
+use table like https://ziglang.org/documentation/master/#Operators
